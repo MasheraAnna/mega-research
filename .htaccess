@@ -1,0 +1,7 @@
+# это переписывание url
+# функция rewrite отдает апачу указанный url вместо того, что был изначально
+# это управление апачем
+
+
+RewriteEngine on
+RewriteRule question([0-9]+)$ index.php?qId=$1

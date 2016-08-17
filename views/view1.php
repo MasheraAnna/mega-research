@@ -8,12 +8,12 @@
     <body>
         Ваше учистие очень важно для нас! Пожалуйста, заполните анкету до конца.
         <br><br>
+<!--Это в хедер-->    
+
+        <?=$question->qNum.". ".$question->qText?>
         
-        <?php if (isset($currentQ)) : ?>
-            <?=$currentQ["qNum"].". ".$currentQ["qText"]?>
-        <?php endif; ?>
         <br><br>
-        <form action='index.php' method='post'>
+        <form action='process.php' method='post'>
             <?php if (isset ($currentAnswers)):?>
                 <table>
                     <?php 
@@ -31,11 +31,22 @@
                     <?php endwhile; ?>   
                 </table>    
             <?php endif;?>
+
+<!--
+if ($row['type'] == 'text') {
+    require('text.php');
+} else if ($row['type'] == 'select') {
+    require('select.php');
+}
+-->          
+
             <br><br>
-            <input type='hidden' name='qId' id='qId' value='<?=$qId?>'>
+            <input type='hidden' name='qId' id='qId' value='<?=$question->id?>'>
             <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>
             <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button>
         </form>
-
+<!--Это в футер-->
+        
+        
     </body>
 </html>
