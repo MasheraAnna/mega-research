@@ -21,7 +21,7 @@
                         <?=$question->variantes[$i+1]?><br>
                 <?php endfor;?>
             <?php endif;?>
-        
+          
             <br>
             <br>
             <input type='hidden' name='qId' id='qId' value='<?=$question->id?>'>

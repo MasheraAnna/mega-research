@@ -16,12 +16,12 @@
         <form action='process.php?qId=<?=$question->id?>' method='post'>
             <?php if (isset ($question->variantes)):?>
                 <?php for ($i=0; $i<count($question->variantes); $i++):?>
+                        <?=$question->variantes[$i+1]?><br><br>
                         <input name ="<?=$question->id.'_'.($i+1)?>" id ="<?=$question->id."_".($i+1)?>" 
-                               type='radio' value="<?=($i+1)?>">
-                        <?=$question->variantes[$i+1]?><br>
+                               type='number'><br>
                 <?php endfor;?>
             <?php endif;?>
-        
+         
             <br>
             <br>
             <input type='hidden' name='qId' id='qId' value='<?=$question->id?>'>
