@@ -1,0 +1,30 @@
+<form action='process.php?qId={{question.id}}' method='post'>
+    
+    <table border="1">
+        <tr>
+            <td></td>
+            {% for scaleKey, scaleStep in scale %}
+            <td>{{scaleStep}}</td>
+            {% endfor %}
+        </tr>
+
+        {% for key, variant in variantes %}
+            <tr>
+                <td>
+                    {{variant}}
+                </td>
+                {% for scaleKey, scaleStep in scale %}
+                    <td>
+                        <input name ="{{key}}" id ="{{key}}_{{scaleKey}}" type='radio' value="{{scaleKey}}"
+                               {% if qData[key] == scaleKey %} checked = 'checked' {% endif %}>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+
+    <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>
+    <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button></br></br>
+</form>

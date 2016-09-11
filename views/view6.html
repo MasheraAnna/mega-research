@@ -1,0 +1,19 @@
+<form action='process.php?qId={{question.id}}' method='post'>
+
+    {% for key, variant in variantes %}
+        <div>
+            <div class='q1'>
+                {{variant}}
+            </div>
+            <input name ="{{key}}" id ="{{key}}" type='text'
+                   {% if qData[key]%} value = '{{qData[key]}}' {% endif %}>
+        </div>
+        {% endfor %}
+
+    <br><br>
+    Сумма:
+    <br><br><br>
+
+    <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>
+    <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button></br></br>
+</form>

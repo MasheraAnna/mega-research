@@ -1,0 +1,14 @@
+<form action='process.php?qId={{question.id}}' method='post'>
+    
+    {% for key, variant in variantes %}
+        <div>
+            <input name ="{{key}}" id ="{{key}}" type='checkbox' value="{{key}}"
+                   {% if qData[key] == key %} checked = 'checked' {% endif %}>
+            {{variant}}
+        </div>
+    {% endfor %}
+    <br><br>
+
+    <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>
+    <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button></br></br>
+</form>

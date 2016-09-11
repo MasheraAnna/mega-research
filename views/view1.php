@@ -3,31 +3,34 @@
     <head>
         <title>Questionnaire</title>
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8' title='Questionnaire'>
-        <link rel='stylesheet' href='stylesheets/styles.css' type='text/css'>
+        <link rel='stylesheet' href='public/stylesheets/styles.css' type='text/css'>
+        <script type="text/javascript" src="lib/jquery-3.0.0.min.js"></script>
+        
     </head>
     <body>
         Ваше учистие очень важно для нас! Пожалуйста, заполните анкету до конца.
         <br><br>
 <!--Это в хедер-->    
 
-        <?=$question->qNum.". ".$question->qText?>
+        <?=$question->qNum.". ".$question->qText;
+        ?>
         
         <br><br>
         <form action='process.php?qId=<?=$question->id?>' method='post'>
             <?php if (isset ($question->variantes)):?>
-                <?php for ($i=0; $i<count($question->variantes); $i++):?>
+                <?php foreach ($this->variantes as $key => $value) :?>
                     <div>
                         <div class='q1'>
-                            <?= $question->variantes[$i+1] ?>
+                            <?=$value?>
                         </div>
-                        <input name ="<?=$question->id."_".($i+1)?>" id ="<?=$question->id."_".($i+1)?>" type='text'>
+                        <input name ="<?=$key?>" id ="<?=$key?>" type='text'
+                        <?=(isset($_SESSION[$question->id."_".$key]))?"value=".$_SESSION[$question->id."_".$key]:''?>>
                     </div>
-                <?php endfor;?>
-            <?php endif;?>         
+                <?php endforeach;?>
+            <?php endif;?>
 
             <br>
             
-            <input type='hidden' name='qId' id='qId' value='<?=$question->id?>'>
             <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>
             <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button>
         </form>
