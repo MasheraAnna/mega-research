@@ -1,28 +1,22 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    {% if question.qView != 'last' %}
-        <div class='greeting'>
-            {% if name %}
-                Добрый день, {{name[1]}} {{name[2]}}!
-            {% else %}
-                Добрый день!
-            {% endif %}
-            Ваше участие очень важно для нас! Пожалуйста, заполните анкету до конца.
-        </div>
-        
-        <div class='question'>
-            </br></br>
-            {{question.qNum}}.
-            {{question.qText}}
-            </br></br>
-        </div>
-        <div class = 'variantes'>    
-            {% include question.qView~'.html' %}
-        </div>
-    {% else %}
-        <div class="goodbuy">
-            {{question.qText}}
-        </div>
-    {% endif %}
+    <div class='greeting'>
+        {% if name %}
+            Добрый день, {{name[1]}} {{name[2]}}!
+        {% else %}
+            Добрый день!
+        {% endif %}
+        Ваше участие очень важно для нас! Пожалуйста, заполните анкету до конца.
+    </div>
+
+    <div class='question'>
+        </br></br>
+        {{question.qNum}}.
+        {{question.qText}}
+        </br></br>
+    </div>
+    <div class = 'variantes'>    
+        {% include question.qView~'.html' %}
+    </div>
 {% endblock %}

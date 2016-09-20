@@ -14,13 +14,14 @@ $twig = new Twig_Environment($loader, array(
     'debug' => true
 ));
 
-if(question.qView != 'last') {
+if($question->qView != 'last') {
     $tpl_name = 'index.html';
 } else {
     $tpl_name = 'bb.html';
 }
 
-$template = $twig->loadTemplate('index.html');
+$template = $twig->loadTemplate($tpl_name);
+
 
 echo $template->render(array(
     "question" => $question->question,
@@ -29,6 +30,10 @@ echo $template->render(array(
     "qData" => $question->qData,
     "name" => $question->name
 ));
+
+
+
+
 
 
 /*************************** Задачи:
@@ -56,6 +61,16 @@ echo $template->render(array(
  * 
  * 6) как по человечески прописать путь к папке твиг, которая поставилась сама (на c в users)?
  *
+ * 
+ * 
+ * 7) ключевой вопрос по архитектуре базы: могу в data оставить только aId и answer, при этом, если у вопроса нет шкалы, то 
+ * answer ставится true, это довольно универсальный подход получается, т.к.  он подходит и для шкальных и для нешкальных вопросов,
+ * и можно будет в aconditions и qconditions убрать тогда из столбца 'answer' коды для нешкальных вопросов - оставить только для шкальных.
+ * это удобно при добавлении вопросов.
+ * 
+ * тогда самая принципиальная проблема, как прописать функцию сенд ту дб, так, чтобы можно было отправлять 
+ * код ответа в aId для radioButton вопросов? Миша что-то говорил про передачу массива прямо в одной из ячеек Post - не помню.
+ * 
  * 
 ****************************/
 

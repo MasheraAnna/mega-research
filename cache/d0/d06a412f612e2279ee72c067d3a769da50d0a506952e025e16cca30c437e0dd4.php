@@ -37,7 +37,7 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
             echo "\"
                    ";
             // line 6
-            if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), array(), "array") == $context["key"])) {
+            if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array") == "true")) {
                 echo " checked = 'checked' ";
             }
             echo " >
@@ -80,7 +80,7 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
 /*     {% for key, variant in variantes %}*/
 /*         <div>*/
 /*             <input name ="{{question.id}}" id ="{{key}}" type='radio' value="{{key}}"*/
-/*                    {% if qData[question.id] == key %} checked = 'checked' {% endif %} >*/
+/*                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} >*/
 /*             {{variant}}*/
 /*         </div>*/
 /*     {% endfor %}*/

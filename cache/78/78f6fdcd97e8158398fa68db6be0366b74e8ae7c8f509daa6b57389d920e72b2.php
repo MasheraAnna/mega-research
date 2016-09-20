@@ -30,18 +30,18 @@ class __TwigTemplate_75e748d196dd89a3a505ef87f1de45e9fc422426d6589c494931fbbee91
             ";
             // line 5
             echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
-            echo "
+            echo " 
             <input name =\"";
             // line 6
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\" id =\"";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\" type='number'
                    ";
             // line 7
-            if ($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), array(), "array")) {
+            if ($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array")) {
                 echo " value = '";
-                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), array(), "array"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array"), "html", null, true);
                 echo "' ";
             }
             echo ">
@@ -79,9 +79,9 @@ class __TwigTemplate_75e748d196dd89a3a505ef87f1de45e9fc422426d6589c494931fbbee91
 /* */
 /*     {% for key, variant in variantes %}*/
 /*         <div>*/
-/*             {{variant}}*/
-/*             <input name ="{{question.id}}" id ="{{key}}" type='number'*/
-/*                    {% if qData[question.id]%} value = '{{qData[question.id]}}' {% endif %}>*/
+/*             {{variant}} */
+/*             <input name ="{{key}}" id ="{{key}}" type='number'*/
+/*                    {% if qData[key]%} value = '{{qData[key]}}' {% endif %}>*/
 /*         </div>*/
 /*     {% endfor %}*/
 /*     <br><br>*/

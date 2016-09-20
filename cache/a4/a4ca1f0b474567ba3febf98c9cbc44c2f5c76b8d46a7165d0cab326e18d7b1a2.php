@@ -32,17 +32,17 @@ class __TwigTemplate_5993ae1fb53dfa5e8506a66bb00d55018b4228af41ec16f971c3e9a4b22
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\" id =\"";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\" type='checkbox' value=\"";
-            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\"
+            echo "\" type='checkbox' value=\"true\"
                    ";
             // line 6
-            if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array") == $context["key"])) {
+            if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array") == true)) {
                 echo " checked = 'checked' ";
             }
             echo ">
             ";
             // line 7
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo " ";
             echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
             echo "
         </div>
@@ -72,16 +72,16 @@ class __TwigTemplate_5993ae1fb53dfa5e8506a66bb00d55018b4228af41ec16f971c3e9a4b22
 
     public function getDebugInfo()
     {
-        return array (  55 => 10,  46 => 7,  40 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
+        return array (  55 => 10,  44 => 7,  38 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
     }
 }
 /* <form action='process.php?qId={{question.id}}' method='post'>*/
 /*     */
 /*     {% for key, variant in variantes %}*/
 /*         <div>*/
-/*             <input name ="{{key}}" id ="{{key}}" type='checkbox' value="{{key}}"*/
-/*                    {% if qData[key] == key %} checked = 'checked' {% endif %}>*/
-/*             {{variant}}*/
+/*             <input name ="{{key}}" id ="{{key}}" type='checkbox' value="true"*/
+/*                    {% if qData[key] == true %} checked = 'checked' {% endif %}>*/
+/*             {{key}} {{variant}}*/
 /*         </div>*/
 /*     {% endfor %}*/
 /*     <br><br>*/

@@ -13,8 +13,6 @@ if (isset($_POST['next'])){
     
 } else if (isset($_POST['prev'])&& $question->id > 1){
     $nextQId = $question->getPrevQId ($CurrentQId);
-    echo $nextQId;
-    
 } else {
     $nextQId = 1;
 }

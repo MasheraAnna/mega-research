@@ -2,9 +2,9 @@
 
     {% for key, variant in variantes %}
         <div>
-            {{variant}}
-            <input name ="{{question.id}}" id ="{{key}}" type='number'
-                   {% if qData[question.id]%} value = '{{qData[question.id]}}' {% endif %}>
+            {{variant}} 
+            <input name ="{{key}}" id ="{{key}}" type='number'
+                   {% if qData[key]%} value = '{{qData[key]}}' {% endif %}>
         </div>
     {% endfor %}
     <br><br>

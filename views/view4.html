@@ -2,9 +2,9 @@
     
     {% for key, variant in variantes %}
         <div>
-            <input name ="{{key}}" id ="{{key}}" type='checkbox' value="{{key}}"
-                   {% if qData[key] == key %} checked = 'checked' {% endif %}>
-            {{variant}}
+            <input name ="{{key}}" id ="{{key}}" type='checkbox' value="true"
+                   {% if qData[key] == true %} checked = 'checked' {% endif %}>
+            {{key}} {{variant}}
         </div>
     {% endfor %}
     <br><br>
