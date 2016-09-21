@@ -2,7 +2,7 @@
 
     {% for key, variant in variantes %}
         <div>
-            <input name ="{{question.id}}" id ="{{key}}" type='radio' value="{{key}}"
+            <input name ="name[]" id ="{{key}}" type='radio' value="{{key}}"
                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} >
             {{variant}}
         </div>

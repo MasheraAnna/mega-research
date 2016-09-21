@@ -1,6 +1,6 @@
 <?php
 class Question {
-    private $viewFile; 
+ 
     public  $question = array();
     public  $variantes = array();
     public  $scale = array();
@@ -24,10 +24,11 @@ class Question {
         
         // проверяем на наличие двух ключевых параметров: qid и respId
         // в зависимости от них определяем, какой вопрос задать респонденту
-        if (isset($_GET['qId']) && $this->respId){
+        
+        $testQId = filter_input (INPUT_GET, 'qId', FILTER_SANITIZE_NUMBER_INT);
+        
+        if ($testQId && $this->respId){
             $this->getLastQuestionAsked();
-            
-            $testQId = filter_input (INPUT_GET, 'qId', FILTER_SANITIZE_NUMBER_INT);
             
             if ($testQId == ($this->lastQuestionAsked+1) or $testQId < ($this->lastQuestionAsked+1)){
                 // считай, что следующим задаем вопрос, который получили из GET
@@ -98,19 +99,20 @@ class Question {
         while ($showQuestion == false){
             
             $nextQ = mysqli_real_escape_string($this->connection, $nextQuestion);
-
+            $respId = mysqli_real_escape_string($this->connection, $this->respId);
+            
             $queryConditionExists = "SELECT * FROM `qconditions` WHERE `qId` = $nextQ";
             $resultConditionExists = mysqli_query($this->connection, $queryConditionExists);
-                
+            
             if (mysqli_num_rows($resultConditionExists)){
-                
                 $queryToCheck = "SELECT qconditions.qId, qconditions.conditionType, qconditions.relatedAId, "
                         . "qconditions.equals, data.qId as data_qId ,data.aId as data_aId, data.answer as data_answer "
                         . "FROM `qconditions` INNER JOIN `data` ON  qconditions.relatedAId  = data.aId "
-                        . "AND qconditions.equals  = data.answer WHERE qconditions.qId = '$nextQ'";
+                        . "AND qconditions.equals  = data.answer WHERE qconditions.qId = '$nextQ' AND data.respId = '$respId' ";
                 $checkResult = mysqli_query($this->connection, $queryToCheck);
-
+                
                 if (mysqli_num_rows($checkResult)){
+                    
                     $showQuestion = true;
                 } else {
                     $showQuestion = false;
@@ -134,7 +136,8 @@ class Question {
         while ($showQuestion == false){
             
             $nextQ = mysqli_real_escape_string($this->connection, $prevQuestion);
-
+            $respId = mysqli_real_escape_string($this->connection, $this->respId);
+            
             $queryConditionExists = "SELECT * FROM `qconditions` WHERE `qId` = $nextQ";
             $resultConditionExists = mysqli_query($this->connection, $queryConditionExists);
                 
@@ -143,7 +146,7 @@ class Question {
                 $queryToCheck = "SELECT qconditions.qId, qconditions.conditionType, qconditions.relatedAId, "
                         . "qconditions.equals, data.qId as data_qId ,data.aId as data_aId, data.answer as data_answer "
                         . "FROM `qconditions` INNER JOIN `data` ON  qconditions.relatedAId  = data.aId "
-                        . "AND qconditions.equals  = data.answer WHERE qconditions.qId = '$nextQ'";
+                        . "AND qconditions.equals  = data.answer WHERE qconditions.qId = '$nextQ' AND data.respId = '$respId'";
                 $checkResult = mysqli_query($this->connection, $queryToCheck);
 
                 if (mysqli_num_rows($checkResult)){
@@ -177,56 +180,38 @@ class Question {
     
     // эта функция получает из базы варианты ответа для текущего вопроса
     private function fetchVariantes (){
+         
         $qId = mysqli_real_escape_string($this->connection,$this->id);
-        $queryForVariantes = "SELECT * FROM `answers` WHERE `Qid`='$qId' ORDER BY `answerIndex`";
+        $queryForVariantes = "SELECT answers.id, answers.qId, answers.answer FROM `answers` "
+                . "LEFT OUTER JOIN `aconditions`ON answers.id = aconditions.aId "
+                . "WHERE answers.qId = '$qId' AND aconditions.id IS NULL ORDER BY answers.answerIndex";
         $resultVariantes = mysqli_query($this->connection, $queryForVariantes);
         
-        while ($row = mysqli_fetch_assoc($resultVariantes)){
+        if (mysqli_num_rows($resultVariantes)){
             
-            // обратись в базу, посмотри, есть ли у этого варианта условие,
-            $aId = mysqli_real_escape_string($this->connection, $row["id"]);
-            $queryForConditions = "SELECT * FROM `aconditions` WHERE `aId`='$aId'";
-            $conditionsResult = mysqli_query($this->connection, $queryForConditions);
-            if (mysqli_num_rows($conditionsResult)){
-                
-                $showVariante = false;
-                
-                // получили условия    
-                // если условия есть, то по каждому из них:
-                while ($line = mysqli_fetch_assoc ($conditionsResult)){
-                    
-                    $respId = mysqli_real_escape_string($this->connection, $this->respId);
-                    $conditionType = $line["aСonditionType"];
-                    $aId = mysqli_real_escape_string($this->connection, $line['relatedAId']);
-                    $conditionValue = $line['equals'];
-                    
-                    // определи тип условия для этого атрибута
-                    if (!$showVariante){
-                        if ($conditionType = 'show attribute if chosen'){
-
-                            // посмотри, какие данные лежат в базе по этому ответу
-                            $conditionCheckQuery = "SELECT * FROM `data` WHERE "
-                                    . "`respId` = '$respId' AND `aId`= '$aId' ";
-                            $conditionCheckResult = mysqli_query($this->connection, $conditionCheckQuery);
-
-                            // Если в базе есть данные по этому запросу и они соответствуют условию
-                            while ($array = mysqli_fetch_assoc ($conditionCheckResult)){
-                                if ($array["answer"] == $conditionValue){
-                                    $showVariante = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                if ($showVariante){
-                    $currentVariantes[$row['id']]=$row['answer']; // вот тут можно вставить массив, впринципе
-                }
-                
-            } else {
-                $currentVariantes[$row['id']]=$row['answer']; // вот тут можно вставить массив, впринципе
+            // это и есть твои варианты
+            while ($row = mysqli_fetch_assoc($resultVariantes)){
+                $currentVariantes[$row['id']] = $row['answer'];
             }
-        }   
+        } else {
+            // пойди в базу и вытащи те, у которых условие есть, и оно выполняется
+            $respId = mysqli_real_escape_string($this->connection, $this->respId);
+            $qId = mysqli_real_escape_string($this->connection,$this->id);
+            
+            $queryForVConditions = "SELECT aconditions.aId, answers.answer, answers.answerIndex FROM `aconditions` 
+                    INNER JOIN `answers` ON aconditions.aId = answers.id 
+                    INNER JOIN `data` ON aconditions.relatedAId = data.aId AND aconditions.equals = data.answer 
+                    WHERE aconditions.qId = '$qId' and data.respId = '$respId'";
+            
+            $resultVConditions = mysqli_query($this->connection, $queryForVConditions);
+            
+            if (mysqli_num_rows($resultVConditions)){
+                while ($rowVConditions = mysqli_fetch_assoc($resultVConditions)){
+                    $currentVariantes[$rowVConditions['aId']]=$rowVConditions['answer'];
+                }
+            } 
+        }
+        
         if (isset($currentVariantes)){
             $this->variantes = $currentVariantes;
             $this->fetchScale();
@@ -281,27 +266,10 @@ class Question {
         } 
     }
     
-    // выводит на экран шаблон, в который вставляет текст вопроса (в зависимости от типа вопроса)
-    public function showView (){
-        // что делает эта строчка?
-        $question=$this;
+    
+    // эта функция ставит респонденту id и cookie, если их не было до этого
+    private function setRespIdAndCookie(){
         
-        ob_start();
-        // сходи тут в базу, определи, какой у нас вью
-        $qId = mysqli_real_escape_string($this->connection, $this->id);
-        $query = "SELECT `qView` FROM `questions` WHERE `id`='$qId'";
-        $result = mysqli_query($this->connection, $query);
-        $resultArray = mysqli_fetch_assoc($result);
-        $qView = $resultArray['qView'];
-        $this->viewFile = $qView;
-        include "./views/".$qView.".php";
-        return ob_end_flush();
-    }
-
-    // Эта функция отправляет данные в базу и в сессию
-    function sendToDB(){
-        
-        // проверяем, есть ли у респондента id, т.е. поставлены ли ему cookies
         if (!$this->respId){
             $startDate = date(DATE_RFC2822);
             $startDate = mysqli_real_escape_string($this->connection, $startDate);
@@ -310,8 +278,8 @@ class Question {
             $stringId = mysqli_insert_id($this->connection);
             
             $respIdQuery = "SELECT `respId` FROM `respondents` WHERE `id` = '$stringId'";
-            
             $respIdQueryResult = mysqli_query($this->connection, $respIdQuery);
+            
             $respIdArray = mysqli_fetch_assoc($respIdQueryResult);
             $respId = $respIdArray['respId'];
             if ($respId){
@@ -319,42 +287,19 @@ class Question {
                 $cookie = setcookie("respId", $respId, time() + 3600);
             }
         }
-        
-        // Проверка: был ли текущий вопрос условием для других вопросов?
-        
-        $respId = mysqli_real_escape_string ($this->connection, $this->respId);
-        $qIdToCheck = mysqli_real_escape_string ($this->connection, $this->id);
-        
-        $allDependancesDeleted = false;
+    }
+    
 
-        // пойди в базу проверь, зависят ли от этого вопроса другие:
-        $queryQConditionSet = "SELECT * FROM `qconditions` WHERE `relatedQId`='$qIdToCheck'";
-        $resultQConditionSet = mysqli_query($this->connection, $queryQConditionSet);
 
-        if (mysqli_num_rows($resultQConditionSet) && isset($this->qData)){
-            
-            // для каждого из полученных их таблицы "qconditions" условий
-            // пройдемся по массиву qData, проверим, совпадают ли ответы в нем с тем, что есть в массиве $_POST
-            while ($condition = mysqli_fetch_assoc ($resultQConditionSet)){
-
-                $diff1 = array_diff_assoc ($_POST, $this->qData);
-                $diff2 = array_diff_assoc ($this->qData, $_POST);
-                // если данные не совпадают:
-                if (count($diff1) > 1 or count($diff2) > 0){
-                    
-                    // если да и его значение изменилось, удали все, что идет после этого вопроса из базы
-                    $queryFindQToDelete = "SELECT * FROM `data` WHERE `respId` = '$respId' AND `qId` > '$qIdToCheck' ";
-                    $connectionFindQ = mysqli_query($this->connection, $queryFindQToDelete);
-
-                    while ($findQRow = mysqli_fetch_assoc($connectionFindQ)){
-                        $qIdToDelete = mysqli_real_escape_string ($this->connection, $findQRow["qId"]);
-                        $queryToDelete = "DELETE FROM `data` WHERE `respId`='$respId' AND `qId`='$qIdToDelete' ";
-                        $deleteResult = mysqli_query ($this->connection, $queryToDelete);
-                    }
-                }
-            }            
-        }
+    // Эта функция отправляет данные в базу и в сессию
+    function sendToDB(){
+                
+        // проверяем, есть ли у респондента id, т.е. поставлены ли ему cookies, если нет - ставим
+        $this->setRespIdAndCookie();
         
+        // проверяем, был ли текущий вопрос условием для других вопросов и изменились ли по нему данные.
+        // если да, то удаляем все данные из следующих вопросов
+        $this->ifThisQuestionDataChanged();
         
         
         $qId = mysqli_real_escape_string ($this->connection, $this->id);
@@ -374,16 +319,20 @@ class Question {
         // вообще для идентификации мне достаточно aId, может быть qId нужно тоже убрать?
         // это лишняя сущность - проверить!!!!!!!!!!!!!!!!!!!!
         // кстати, нужно все массивы post тоже обработать, чтобы не обращаться к ним непосредственно.
+        // вопрос - как тут экранировать символы? у меня же массив? filter_input не применяется к массиву
         
-        foreach ($_POST as $key => $value) {
-            if ($this->question['inputType'] == 'single'){
+        if (isset ($_POST['name'])){
+            foreach ($_POST['name'] as $key => $value){
                 $query = "INSERT INTO `data` (`respId`,`qId`,`aId`,`answer`)"
                         . "VALUES ('$respId','$qId','$value','true')";
-            } elseif ($this->question['inputType'] == 'multiple'){
-                $query = "INSERT INTO `data` (`respId`,`qId`,`aId`,`answer`)"
-                        . "VALUES ('$respId','$qId','$key','$value')";                
+                $result = mysqli_query($this->connection, $query);
             }
-            $result = mysqli_query($this->connection, $query);
+        } else {
+            foreach ($_POST as $key => $value) {
+                    $query = "INSERT INTO `data` (`respId`,`qId`,`aId`,`answer`)"
+                            . "VALUES ('$respId','$qId','$key','$value')";                
+                $result = mysqli_query($this->connection, $query);
+            }
         }
     }
     
@@ -407,7 +356,51 @@ class Question {
             }
         }
     }
+    
+    private function ifThisQuestionDataChanged(){
+        
+        $respId = mysqli_real_escape_string ($this->connection, $this->respId);
+        $qIdToCheck = mysqli_real_escape_string ($this->connection, $this->id);
 
+        // пойди в базу проверь, зависят ли от этого вопроса другие:
+        $queryQConditionSet = "SELECT * FROM `qconditions` WHERE `relatedQId`='$qIdToCheck'";
+        $resultQConditionSet = mysqli_query($this->connection, $queryQConditionSet);
+
+        // если да, проверь, изменились ли данные по нему
+        if (mysqli_num_rows($resultQConditionSet) && isset($this->qData)){
+            
+            // для разных видов отправки в пост прописать разные функции
+            if (isset($_POST['name'])){
+                echo 'hey';
+                foreach ($_POST['name'] as $key=>$value){
+                    $arrayPost[$value]='true';
+                }
+            } else {
+                foreach ($_POST as $key=>$value){
+                    if ($key == 'next')
+                        continue;
+                    $arrayPost[$key]=$value;
+                    
+                }
+            }
+            
+            $diff1 = array_diff_assoc ($arrayPost, $this->qData);
+            $diff2 = array_diff_assoc ($this->qData, $arrayPost);
+            // если данные изменились, удали все, что идет после этого вопроса:
+            if (count($diff1) > 0 or count($diff2) > 0){
+                // если да и его значение изменилось, удали все, что идет после этого вопроса из базы
+                $queryFindQToDelete = "SELECT * FROM `data` WHERE `respId` = '$respId' AND `qId` > '$qIdToCheck' ";
+                $connectionFindQ = mysqli_query($this->connection, $queryFindQToDelete);
+
+                while ($findQRow = mysqli_fetch_assoc($connectionFindQ)){
+                    $qIdToDelete = mysqli_real_escape_string ($this->connection, $findQRow["qId"]);
+                    $queryToDelete = "DELETE FROM `data` WHERE `respId`='$respId' AND `qId`='$qIdToDelete' ";
+                    $deleteResult = mysqli_query ($this->connection, $queryToDelete);
+                }
+            }
+        }
+    }
+    
 
 // destructor
 // тут сделать коннекшн клоз

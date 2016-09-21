@@ -1,7 +1,7 @@
 <?php
 
-/* view2.html */
-class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1ed12e6 extends Twig_Template
+/* view1.html */
+class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fef1d49 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -19,7 +19,7 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
         echo "<form action='process.php?qId=";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), "html", null, true);
         echo "' method='post'>
-
+    
     ";
         // line 3
         $context['_parent'] = $context;
@@ -27,29 +27,34 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
         foreach ($context['_seq'] as $context["key"] => $context["variant"]) {
             // line 4
             echo "        <div>
-            <input name =\"name[]\" id =\"";
-            // line 5
-            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\" type='radio' value=\"";
-            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\"
-                   ";
+            <div class='q1'>
+                ";
             // line 6
-            if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array") == "true")) {
-                echo " checked = 'checked' ";
-            }
-            echo " >
-            ";
-            // line 7
             echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
             echo "
+            </div>
+            <input name =\"";
+            // line 8
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\" id =\"";
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\" type='text'
+            ";
+            // line 9
+            if ($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array")) {
+                echo " value = '";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array"), "html", null, true);
+                echo "' ";
+            }
+            echo " >
+            
         </div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['variant'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 10
+        // line 13
         echo "    <br><br>
 
     <button name = \"next\" id=\"next\" type=\"submit\" style=\"width: 180px\" value=\"next\"> Следующий вопрос>> </button></br></br>
@@ -60,7 +65,7 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
 
     public function getTemplateName()
     {
-        return "view2.html";
+        return "view1.html";
     }
 
     public function isTraitable()
@@ -70,16 +75,19 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
 
     public function getDebugInfo()
     {
-        return array (  53 => 10,  44 => 7,  38 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
+        return array (  58 => 13,  44 => 9,  38 => 8,  33 => 6,  29 => 4,  25 => 3,  19 => 1,);
     }
 }
 /* <form action='process.php?qId={{question.id}}' method='post'>*/
-/* */
+/*     */
 /*     {% for key, variant in variantes %}*/
 /*         <div>*/
-/*             <input name ="name[]" id ="{{key}}" type='radio' value="{{key}}"*/
-/*                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} >*/
-/*             {{variant}}*/
+/*             <div class='q1'>*/
+/*                 {{variant}}*/
+/*             </div>*/
+/*             <input name ="{{key}}" id ="{{key}}" type='text'*/
+/*             {% if qData[key] %} value = '{{qData[key]}}' {% endif %} >*/
+/*             */
 /*         </div>*/
 /*     {% endfor %}*/
 /*     <br><br>*/

@@ -1,7 +1,7 @@
 <?php
 
-/* view2.html */
-class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1ed12e6 extends Twig_Template
+/* view3.html */
+class __TwigTemplate_c4da39ea2bf64ae6e1ff8816556807f63fbb5dda34f046ce6f8eec846c9fe1f2 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -27,22 +27,24 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
         foreach ($context['_seq'] as $context["key"] => $context["variant"]) {
             // line 4
             echo "        <div>
-            <input name =\"name[]\" id =\"";
-            // line 5
-            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\" type='radio' value=\"";
-            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\"
-                   ";
-            // line 6
-            if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array") == "true")) {
-                echo " checked = 'checked' ";
-            }
-            echo " >
             ";
-            // line 7
+            // line 5
             echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
-            echo "
+            echo " 
+            <input name =\"";
+            // line 6
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\" id =\"";
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\" type='number'
+                   ";
+            // line 7
+            if ($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array")) {
+                echo " value = '";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array"), "html", null, true);
+                echo "' ";
+            }
+            echo ">
         </div>
     ";
         }
@@ -60,7 +62,7 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
 
     public function getTemplateName()
     {
-        return "view2.html";
+        return "view3.html";
     }
 
     public function isTraitable()
@@ -70,16 +72,16 @@ class __TwigTemplate_3da65914a8e99d30ad0ca7cf37844f7363ef3d793113ecae852443c2e1e
 
     public function getDebugInfo()
     {
-        return array (  53 => 10,  44 => 7,  38 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
+        return array (  55 => 10,  42 => 7,  36 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
     }
 }
 /* <form action='process.php?qId={{question.id}}' method='post'>*/
 /* */
 /*     {% for key, variant in variantes %}*/
 /*         <div>*/
-/*             <input name ="name[]" id ="{{key}}" type='radio' value="{{key}}"*/
-/*                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} >*/
-/*             {{variant}}*/
+/*             {{variant}} */
+/*             <input name ="{{key}}" id ="{{key}}" type='number'*/
+/*                    {% if qData[key]%} value = '{{qData[key]}}' {% endif %}>*/
 /*         </div>*/
 /*     {% endfor %}*/
 /*     <br><br>*/

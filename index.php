@@ -22,7 +22,6 @@ if($question->qView != 'last') {
 
 $template = $twig->loadTemplate($tpl_name);
 
-
 echo $template->render(array(
     "question" => $question->question,
     "variantes" => $question->variantes,
@@ -71,6 +70,7 @@ echo $template->render(array(
  * тогда самая принципиальная проблема, как прописать функцию сенд ту дб, так, чтобы можно было отправлять 
  * код ответа в aId для radioButton вопросов? Миша что-то говорил про передачу массива прямо в одной из ячеек Post - не помню.
  * 
+ * 8) вопросы на строчках 390 и около.
  * 
 ****************************/
 
