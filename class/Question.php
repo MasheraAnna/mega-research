@@ -44,6 +44,15 @@ class Question {
                 $qId = $nextQId;
                 $this->question["id"]= $nextQId;
             }
+        } else if ($testQId && !$this->respId){
+            // это значит куки удалились в тот момент, когда у респа была открыта анкета
+            // но где-то в памяти объекта они должны были сохраниться же.
+            // можно их передать в скрытом поле и прописать обработку этого скрытого поля, 
+            // чтобы каждый раз оно проверялось и куки ставились, если что.
+            // спросить у Миши.
+            $qId = 1;
+            $this->question["id"]=1;
+            
         } else if ($this->respId) {
             $this->getLastQuestionAsked();
             // проверь, можем ли мы задать этот вопрос!
@@ -265,11 +274,9 @@ class Question {
             $this->name = $name;
         } 
     }
-    
-    
-    // эта функция ставит респонденту id и cookie, если их не было до этого
-    private function setRespIdAndCookie(){
         
+    // эта функция ставит респонденту id и cookie, если их не было до этого
+    private function setRespIdAndCookie(){    
         if (!$this->respId){
             $startDate = date(DATE_RFC2822);
             $startDate = mysqli_real_escape_string($this->connection, $startDate);
@@ -289,8 +296,6 @@ class Question {
         }
     }
     
-
-
     // Эта функция отправляет данные в базу и в сессию
     function sendToDB(){
                 
@@ -304,6 +309,7 @@ class Question {
         
         $qId = mysqli_real_escape_string ($this->connection, $this->id);
         $respId = mysqli_real_escape_string($this->connection, $this->respId);        
+        
         // Проверяем, есть ли текущий вопрос уже в базе, если да - удаляем его
         $query = "SELECT `id` FROM `data` WHERE `qId` = '$qId' AND respId = '$respId' ";
         $result = mysqli_query ($this->connection, $query);
@@ -339,18 +345,29 @@ class Question {
     
     private function getLastQuestionAsked(){
         // обратимся в базу, вытащим все записи текущего респондента.
+        
         $respId = mysqli_real_escape_string($this->connection, $this->respId);
-        $query = "SELECT `qId` FROM `data` WHERE `respId` ='$respId'";
+        
+        // потому, что здесь нет респ id и запрос не выполняется из-за этого
+        // если нет respId, значит ил это, что куки удалились?
+        // если да - нужно просто задать respId
+        echo $respId;
+        echo "<br>";
+        $query = "SELECT `qId` FROM `data` WHERE `respId` ='$respId' ORDER BY `qId`";
         $result = mysqli_query ($this->connection, $query);
+        echo mysqli_num_rows($result);
+        
         if (mysqli_num_rows($result)){
+        
         // сложим все полученные записи в массив $askedQestionsArray
             while ($row = mysqli_fetch_assoc($result)){
+                
                 $askedQestionsArray[]=$row['qId'];
             }
             // определим, какой вопрос был задан последним, для этого сортируем массив по убыванию
-            sort($askedQestionsArray);
             $maxKey = max(array_keys($askedQestionsArray));
             $lastAskedQuestion = $askedQestionsArray[$maxKey];
+            
             if ($lastAskedQuestion){
                 $this->lastQuestionAsked = $lastAskedQuestion;
             }
@@ -371,7 +388,6 @@ class Question {
             
             // для разных видов отправки в пост прописать разные функции
             if (isset($_POST['name'])){
-                echo 'hey';
                 foreach ($_POST['name'] as $key=>$value){
                     $arrayPost[$value]='true';
                 }
@@ -380,23 +396,16 @@ class Question {
                     if ($key == 'next')
                         continue;
                     $arrayPost[$key]=$value;
-                    
                 }
             }
             
             $diff1 = array_diff_assoc ($arrayPost, $this->qData);
             $diff2 = array_diff_assoc ($this->qData, $arrayPost);
+            
             // если данные изменились, удали все, что идет после этого вопроса:
             if (count($diff1) > 0 or count($diff2) > 0){
-                // если да и его значение изменилось, удали все, что идет после этого вопроса из базы
-                $queryFindQToDelete = "SELECT * FROM `data` WHERE `respId` = '$respId' AND `qId` > '$qIdToCheck' ";
+                $queryFindQToDelete = "DELETE FROM `data` WHERE `respId` = '$respId' AND `qId` > '$qIdToCheck' ";
                 $connectionFindQ = mysqli_query($this->connection, $queryFindQToDelete);
-
-                while ($findQRow = mysqli_fetch_assoc($connectionFindQ)){
-                    $qIdToDelete = mysqli_real_escape_string ($this->connection, $findQRow["qId"]);
-                    $queryToDelete = "DELETE FROM `data` WHERE `respId`='$respId' AND `qId`='$qIdToDelete' ";
-                    $deleteResult = mysqli_query ($this->connection, $queryToDelete);
-                }
             }
         }
     }
