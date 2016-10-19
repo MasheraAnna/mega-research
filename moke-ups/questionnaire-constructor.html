@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Bootstrap 101 Template</title>
+        <title>Q-Constructor</title>
 
         <!-- Bootstrap -->
         <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -73,12 +73,24 @@
                     
                     <hr>
                     
-                    <div class="answer-variant height-sm"><span> Открытый вопрос </span></div>
-                    <div class="answer-variant height-md"><span> Вопрос с вариантами ответа</span></div>
-                    <div class="answer-variant height-sm"><span> Вопрос со шкалой </span></div>
-                    <div class="answer-variant height-md"><span> Вопрос с ответами-шкалами </span></div>
-                    <div class="answer-variant height-sm"><span> Дата </span></div>
-                    <div class="answer-variant height-sm"><span> Группа вопросов </span></div>
+                    <a href="#openModal" class="answer-variant height-sm">
+                        <span> Открытый вопрос </span>
+                    </a>
+                    <a href="#openModal" class="answer-variant height-md">
+                            <span> Вопрос с вариантами ответа</span>
+                    </a>
+                    <a href="#openModal" class="answer-variant height-sm">
+                            <span> Вопрос со шкалой </span>
+                    </a>
+                    <a href="#openModal" class="answer-variant height-md">
+                            <span> Вопрос с ответами-шкалами </span>
+                    </a>
+                    <a href="#openModal" class="answer-variant height-sm">
+                            <span> Дата </span>
+                    </a>
+                    <a href="#openModal" class="answer-variant height-sm">
+                            <span> Группа вопросов </span>
+                    </a>
                     
                     <hr>
                     
@@ -113,5 +125,90 @@
                 </div>
             </div>    
         </div>
+
+<!-- modal window -->
+
+<div id="openModal" class="modalDialog">
+    <div>
+        <a href="#close" title="Закрыть" class="close">X</a>
+        <div class='row'>
+            <div class='col-sm-3 modal-columns modal-menue'>
+                    <div class = qBuilderHead>
+                        Тип вопроса
+                    </div>
+                    <div class = "qBuilderBody">
+                        вставить ответ из другого вопроса <br>
+                        изменить шрифт - цвет, толщину, курсив <br>
+                        <hr>
+                        <div class='qtextModal'>
+                            <div class='qPModal'> Текст вопроса </div>
+                            <div class='qPModal'> № </div> 
+                            <input class='qPModal' type='text' size='2px'>
+                            <input type='text' class='qTextInput'>
+                        </div>
+                        
+
+                        <hr>
+                        Добавить фильтр (условие) 
+                        <label class="switch">
+                            <input type="checkbox">
+                            <div class="slider round"></div>
+                        </label>
+                        <hr>
+                        Добавить зависимый вопрос 
+                        <label class="switch">
+                            <input type="checkbox">
+                            <div class="slider round"></div>
+                        </label>
+                        <hr>
+                        Добавить комментарий 
+                        <label class="switch">
+                            <input type="checkbox">
+                            <div class="slider round"></div>
+                        </label>
+                        <hr>
+                        Варианты ответа <br>
+                        + добавить вариант (добавить/удалить/переместить наверх/вниз)<br>
+                        Добавить шкалу (сделать отдельный тип для шкальных вопросов) <br>
+                        Добавить пустое поле напротив каждого варианта (числовое/текстовое) <br>
+                        Добавить сумму ответов <br>
+                        Добавить картинку в вариант <br>
+                        <hr>
+                        Добавить картинку / видео
+                        <hr>
+                        Настройки <br>
+                        Добавить другое <br>
+                        Добавить ничего из перечисленного <br>
+                        Затрудняюсь ответить <br>
+                        Ротация (показывать ответы в случайном порядке)<br>
+                        выровнять по вертикали <br>
+                        выровнять по горизонтали (колонками?)<br>
+                        <hr>
+                        Сохранить / Отмена - это тоже фиксированное поле
+                        <hr>
+                        
+                        Куда-то нужно добавить следующие опции <br>
+                        Закодировать вопрос автоматически, если выбран какой-то вариант ответа <br>
+                        Показывать определенные варианты, если выбран какой-то вариант ответа <br>
+                    </div>
+                    <div class="qBuilderFooter">
+                        <button>Отмена</button>
+                        <button>Сохранить</button>
+                    </div>
+            </div>
+            <div class='col-sm-9 modal-columns modal-workspace'>
+                Здесь внешний вид вопроса <br>
+                Здесь внешний вид вопроса <br>
+                Здесь внешний вид вопроса <br>
+                Здесь внешний вид вопроса <br>
+                Здесь внешний вид вопроса <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
     </body>
 </html>
