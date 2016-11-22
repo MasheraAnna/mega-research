@@ -129,43 +129,111 @@
 <!-- modal window -->
 
 <div id="openModal" class="modalDialog">
+
+<!-- Это шапка конструктора -->
     <div>
         <a href="#close" title="Закрыть" class="close">X</a>
         <div class='row'>
             <div class='col-sm-3 modal-columns modal-menue'>
                     <div class = qBuilderHead>
-                        Тип вопроса
+                        Вопрос с вариантами ответа
                     </div>
+
+
+<!-- Это тело конструктора -->
+
                     <div class = "qBuilderBody">
-                        вставить ответ из другого вопроса <br>
-                        изменить шрифт - цвет, толщину, курсив <br>
-                        <hr>
-                        <div class='qtextModal'>
+
+                        <div class = 'builderBlock'>
                             <div class='qPModal'> Текст вопроса </div>
-                            <div class='qPModal'> № </div> 
-                            <input class='qPModal' type='text' size='2px'>
+                            <div class='qPModal float-right'>
+                                <div class='qPModal'> № </div>
+                                <input class='qPModal' type='text' size='2px'>
+                            </div>
+                        </div>
+
+                        <div class = 'builderBlock'>
+                            <div class = 'text-align'>
+                                <button class='btn btn-default btn-sm dropdown-toggle' data-toggle='dropdown'>
+                                    + ответ из другого вопроса &nbsp<span class='caret'></span>                    
+                                </button>
+                                <ul class='dropdown-menu insert_var'>
+                                    <li><a href='#'>Вопрос 1</a></li>
+                                    <li><a href='#'>Вопрос 2</a></li>
+                                    <li><a href='#'>Вопрос 3</a></li>
+                                    <li><a href='#'>Вопрос 4</a></li>
+                                    <li><a href='#'>Вопрос 5</a></li>
+                                    <li><a href='#'>Вопрос 6</a></li>
+                                </ul>
+                                <button class='btn btn-default btn-sm '> B </button> 
+                                <button class='btn btn-default btn-sm '> <i> I </i></button>
+                                <button class='btn btn-default btn-sm '> <i> F </i></button>
+                            </div>
+                        
+                        </div>
+
+                        
+                        <div class='builderBlock'>
                             <input type='text' class='qTextInput'>
                         </div>
-                        
 
                         <hr>
-                        Добавить фильтр (условие) 
-                        <label class="switch">
-                            <input type="checkbox">
-                            <div class="slider round"></div>
-                        </label>
+
+                        <div class = 'qblock'>
+                            <div class='qPModal'> Комментарий </div>
+                            <div class='qPModal float-right'>
+                                <label class="switch qblock-items">
+                                    <input type="checkbox">
+                                    <div class="slider round"></div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class = 'qblock text-align'>
+
+                                <button class='btn btn-default btn-sm dropdown-toggle' data-toggle='dropdown'>
+                                    + ответ из другого вопроса &nbsp<span class='caret'></span>                    
+                                </button>
+                                <ul class='dropdown-menu insert_var'>
+                                    <li><a href='#'>Вопрос 1</a></li>
+                                    <li><a href='#'>Вопрос 2</a></li>
+                                    <li><a href='#'>Вопрос 3</a></li>
+                                    <li><a href='#'>Вопрос 4</a></li>
+                                    <li><a href='#'>Вопрос 5</a></li>
+                                    <li><a href='#'>Вопрос 6</a></li>
+                                </ul>
+                                <button class='btn btn-default btn-sm '> B </button> 
+                                <button class='btn btn-default btn-sm '> <i> I </i></button>
+                                <button class='btn btn-default btn-sm '> <i> F </i></button>
+                        </div>
+
                         <hr>
-                        Добавить зависимый вопрос 
-                        <label class="switch">
-                            <input type="checkbox">
-                            <div class="slider round"></div>
-                        </label>
+
+                        <div class = 'qblock'>
+                            <span class = 'qblock-items'> Добавить фильтр (условие) </span> 
+                            <label class="switch qblock-items">
+                                <input type="checkbox">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                        
                         <hr>
-                        Добавить комментарий 
-                        <label class="switch">
-                            <input type="checkbox">
-                            <div class="slider round"></div>
-                        </label>
+
+                        <div class = 'qblock'>    
+                            Единственный выбор <!-- надпись должна меняться по щелчку на тумблер / множественный выбор --> 
+                            <label class="switch">
+                                <input type="checkbox">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                        <hr>
+                        <div class = 'qblock'>
+                            Добавить комментарий 
+                            <label class="switch">
+                                <input type="checkbox">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
                         <hr>
                         Варианты ответа <br>
                         + добавить вариант (добавить/удалить/переместить наверх/вниз)<br>
@@ -191,6 +259,9 @@
                         Закодировать вопрос автоматически, если выбран какой-то вариант ответа <br>
                         Показывать определенные варианты, если выбран какой-то вариант ответа <br>
                     </div>
+
+<!-- Это футер конструктора -->
+
                     <div class="qBuilderFooter">
                         <button>Отмена</button>
                         <button>Сохранить</button>

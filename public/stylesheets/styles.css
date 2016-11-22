@@ -388,9 +388,36 @@ input:checked + .slider:before {
     height: 100px;
 }
 .qTextModal{
-    display: inline-flex;
-    text-align: justify;
+    display: inline;
 }
 .qPModal{
+    display: inline-block;
+}
+.insert_var{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99999;
+}
+.builderBlock{
+    margin-bottom: 25px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.text-align{
+    text-align: right;
+}
+
+.float-right{
+    float: right;
+}
+
+.qblock2{
+    display: flex;
+    justify-content: space-between;
+}
+.qblock-items{
     display: inline-flex;
+    justify-content: space-between;
 }
