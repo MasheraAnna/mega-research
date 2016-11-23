@@ -179,20 +179,20 @@
 
                         <hr>
 
-                        <div class = 'qblock'>
-                            <div class='qPModal'> Комментарий </div>
+                        <div class = 'builderBlock'>
+                            <div class='qPModal'> Добавить комментарий </div>
                             <div class='qPModal float-right'>
                                 <label class="switch qblock-items">
                                     <input type="checkbox">
                                     <div class="slider round"></div>
-                                </label>
+                                </label>    
                             </div>
                         </div>
 
-                        <div class = 'qblock text-align'>
-
+                        <div class = 'builderBlock' data-toggle='collapse'>
+                            <div class = 'text-align'>
                                 <button class='btn btn-default btn-sm dropdown-toggle' data-toggle='dropdown'>
-                                    + ответ из другого вопроса &nbsp<span class='caret'></span>                    
+                                    + ответ из другого вопроса &nbsp <span class='caret'></span>                    
                                 </button>
                                 <ul class='dropdown-menu insert_var'>
                                     <li><a href='#'>Вопрос 1</a></li>
@@ -205,59 +205,69 @@
                                 <button class='btn btn-default btn-sm '> B </button> 
                                 <button class='btn btn-default btn-sm '> <i> I </i></button>
                                 <button class='btn btn-default btn-sm '> <i> F </i></button>
+                            </div>
+                        </div>
+
+                        <div class='builderBlock'>
+                            <input type='text' class='qTextInput'>
                         </div>
 
                         <hr>
 
-                        <div class = 'qblock'>
-                            <span class = 'qblock-items'> Добавить фильтр (условие) </span> 
-                            <label class="switch qblock-items">
-                                <input type="checkbox">
-                                <div class="slider round"></div>
-                            </label>
+                        <div class = 'builderBlock'>
+                            <div class='qPModal'> Добавить фильтр (условие) </div> 
+                            <div class='qPModal float-right'>
+                                <label class="switch qblock-items">
+                                    <input type="checkbox">
+                                    <div class="slider round"></div>
+                                </label>
+                            </div>
                         </div>
                         
                         <hr>
 
-                        <div class = 'qblock'>    
-                            Единственный выбор <!-- надпись должна меняться по щелчку на тумблер / множественный выбор --> 
-                            <label class="switch">
-                                <input type="checkbox">
-                                <div class="slider round"></div>
-                            </label>
+                        <div class = 'builderBlock'>
+                            <div class='qPModal'> 
+                                Один ответ / Несколько ответов <!-- надпись должна меняться по щелчку на тумблер / множественный выбор --> 
+                            </div> 
+                            <div class='qPModal float-right'>
+                                <label class="switch qblock-items">
+                                    <input type="checkbox">
+                                    <div class="slider round"></div>
+                                </label>
+                            </div>
                         </div>
+
                         <hr>
-                        <div class = 'qblock'>
-                            Добавить комментарий 
-                            <label class="switch">
-                                <input type="checkbox">
-                                <div class="slider round"></div>
-                            </label>
+                        <div class = 'builderBlock'>
+                            <div> Варианты ответа </div>
+                            <div>
+                            <span> 1. </span>
+                            <input type='text'>
+                            </div> 
+                            + добавить вариант (добавить/удалить/переместить наверх/вниз)<br>
+                            Добавить шкалу (сделать отдельный тип для шкальных вопросов) <br>
+                            Добавить пустое поле напротив каждого варианта (числовое/текстовое) <br>
+                            Добавить сумму ответов <br>
+                            Добавить картинку в вариант <br>
+                            <hr>
+                            Добавить картинку / видео
+                            <hr>
+                            Настройки <br>
+                            Добавить другое <br>
+                            Добавить ничего из перечисленного <br>
+                            Затрудняюсь ответить <br>
+                            Ротация (показывать ответы в случайном порядке)<br>
+                            выровнять по вертикали <br>
+                            выровнять по горизонтали (колонками?)<br>
+                            <hr>
+                            Сохранить / Отмена - это тоже фиксированное поле
+                            <hr>
+                            
+                            Куда-то нужно добавить следующие опции <br>
+                            Закодировать вопрос автоматически, если выбран какой-то вариант ответа <br>
+                            Показывать определенные варианты, если выбран какой-то вариант ответа <br>
                         </div>
-                        <hr>
-                        Варианты ответа <br>
-                        + добавить вариант (добавить/удалить/переместить наверх/вниз)<br>
-                        Добавить шкалу (сделать отдельный тип для шкальных вопросов) <br>
-                        Добавить пустое поле напротив каждого варианта (числовое/текстовое) <br>
-                        Добавить сумму ответов <br>
-                        Добавить картинку в вариант <br>
-                        <hr>
-                        Добавить картинку / видео
-                        <hr>
-                        Настройки <br>
-                        Добавить другое <br>
-                        Добавить ничего из перечисленного <br>
-                        Затрудняюсь ответить <br>
-                        Ротация (показывать ответы в случайном порядке)<br>
-                        выровнять по вертикали <br>
-                        выровнять по горизонтали (колонками?)<br>
-                        <hr>
-                        Сохранить / Отмена - это тоже фиксированное поле
-                        <hr>
-                        
-                        Куда-то нужно добавить следующие опции <br>
-                        Закодировать вопрос автоматически, если выбран какой-то вариант ответа <br>
-                        Показывать определенные варианты, если выбран какой-то вариант ответа <br>
                     </div>
 
 <!-- Это футер конструктора -->
@@ -273,7 +283,6 @@
                 Здесь внешний вид вопроса <br>
                 Здесь внешний вид вопроса <br>
                 Здесь внешний вид вопроса <br>
-
             </div>
         </div>
     </div>
