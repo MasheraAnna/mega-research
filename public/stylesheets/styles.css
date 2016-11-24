@@ -421,3 +421,33 @@ input:checked + .slider:before {
     display: inline-flex;
     justify-content: space-between;
 }
+.qVariantes{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.input-small{
+    width: 160px;
+}
+.bBlockInner{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.string{
+    line-height: 35px;
+}
+.inline-block{
+    display: inline-block;
+}
+.align-right{
+    text-align: right;
+}
+.pic-vid{
+    width: 155px;
+}
+.text-sm{
+    font-size: 12px;
+}
+.qVariantHeading{
+    font-weight: bold;
+}

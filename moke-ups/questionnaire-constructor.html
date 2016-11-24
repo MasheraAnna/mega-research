@@ -145,7 +145,7 @@
                     <div class = "qBuilderBody">
 
                         <div class = 'builderBlock'>
-                            <div class='qPModal'> Текст вопроса </div>
+                            <div class='qPModal qVariantHeading'> Текст вопроса </div>
                             <div class='qPModal float-right'>
                                 <div class='qPModal'> № </div>
                                 <input class='qPModal' type='text' size='2px'>
@@ -180,7 +180,7 @@
                         <hr>
 
                         <div class = 'builderBlock'>
-                            <div class='qPModal'> Добавить комментарий </div>
+                            <div class='qPModal qVariantHeading'> Добавить комментарий </div>
                             <div class='qPModal float-right'>
                                 <label class="switch qblock-items">
                                     <input type="checkbox">
@@ -215,7 +215,7 @@
                         <hr>
 
                         <div class = 'builderBlock'>
-                            <div class='qPModal'> Добавить фильтр (условие) </div> 
+                            <div class='qPModal qVariantHeading'> Добавить фильтр (условие) </div> 
                             <div class='qPModal float-right'>
                                 <label class="switch qblock-items">
                                     <input type="checkbox">
@@ -240,33 +240,152 @@
 
                         <hr>
                         <div class = 'builderBlock'>
-                            <div> Варианты ответа </div>
-                            <div>
-                            <span> 1. </span>
-                            <input type='text'>
-                            </div> 
-                            + добавить вариант (добавить/удалить/переместить наверх/вниз)<br>
-                            Добавить шкалу (сделать отдельный тип для шкальных вопросов) <br>
-                            Добавить пустое поле напротив каждого варианта (числовое/текстовое) <br>
-                            Добавить сумму ответов <br>
-                            Добавить картинку в вариант <br>
+                            <div class='qVariantHeading'> Варианты ответа </div>
+                            <div class = 'qVariantes'>
+                                <span> 1. </span>
+                                <input type='text' class="input-small">
+                                <div class = 'float-right'>
+                                    <i class = 'fa fa-square-o fa-lg'></i>
+                                    <i class = 'fa fa-file-picture-o fa-lg'></i>
+                                    <i class = 'fa fa-sort-numeric-asc fa-lg'></i>
+                                    <i class = 'fa fa-plus-circle fa-lg'></i>
+                                    <i class = 'fa fa-minus-circle fa-lg'></i>
+                                    <i class = 'fa fa-arrow-circle-down fa-lg'></i>
+                                </div>
+                            </div>
+                            <div class = 'qVariantes'>
+                                <span> 2. </span>
+                                <input type='text' class="input-small">
+                                <div class = 'float-right'>
+                                    <i class = 'fa fa-square-o fa-lg'></i>
+                                    <i class = 'fa fa-file-picture-o fa-lg'></i>
+                                    <i class = 'fa fa-sort-numeric-asc fa-lg'></i>
+                                    <i class = 'fa fa-plus-circle fa-lg'></i>
+                                    <i class = 'fa fa-minus-circle fa-lg'></i>
+                                    <i class = 'fa fa-arrow-circle-down fa-lg'></i>
+                                </div>
+                            </div>
+                            <div class = 'qVariantes'>
+                                <span> 3. </span>
+                                <input type='text' class="input-small">
+                                <div class = 'float-right'>
+                                    <i class = 'fa fa-square-o fa-lg'></i>
+                                    <i class = 'fa fa-file-picture-o fa-lg'></i>
+                                    <i class = 'fa fa-sort-numeric-asc fa-lg'></i>
+                                    <i class = 'fa fa-plus-circle fa-lg'></i>
+                                    <i class = 'fa fa-minus-circle fa-lg'></i>
+                                    <i class = 'fa fa-arrow-circle-down fa-lg'></i>
+                                </div>
+                            </div>
+                            <div class = 'builderBlock'>
+                                <div class = 'bBlockInner'> 
+                                    <div class = 'string inline-block '> Проверка суммы по ответам </div>
+                                    <div class = 'float-right inline-block'>
+                                        <label class="switch qblock-items">
+                                            <input type="checkbox">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class = 'bBlockInner'>
+                                    <span> сумма ответов равна </span>
+                                    <input type = 'text' size='5px' class = 'float-right'>
+                                </div>
+                            </div>
+
                             <hr>
-                            Добавить картинку / видео
+
+                            <div class = 'builderBlock'>
+                                <div class='qVariantHeading inline-block'> Добавить картинку / видео </div>
+                                <div class = 'float-right inline-block'>
+                                    <label class="switch qblock-items">
+                                        <input type="checkbox">
+                                        <div class="slider round"></div>
+                                    </label>
+                                </div>
+                                <div class = 'bBlockInner'>
+                                    <div class="btn-group btn-group-md">
+                                        <a href="#" class = 'btn btn-default pic-vid'> Катринка </a>
+                                        <a href="#" class = 'btn btn-default pic-vid'> Видео </a>
+                                    </div>
+                                </div>
+                                <div class = 'bBlockInner'>
+                                    <a href="#" class = 'btn btn-default'> Закрузить </a>
+                                    <span class = 'text-sm'> Максимум 2.0 Mb</span>
+                                </div>
+                            </div>
                             <hr>
-                            Настройки <br>
-                            Добавить другое <br>
-                            Добавить ничего из перечисленного <br>
-                            Затрудняюсь ответить <br>
-                            Ротация (показывать ответы в случайном порядке)<br>
-                            выровнять по вертикали <br>
-                            выровнять по горизонтали (колонками?)<br>
-                            <hr>
-                            Сохранить / Отмена - это тоже фиксированное поле
-                            <hr>
-                            
-                            Куда-то нужно добавить следующие опции <br>
-                            Закодировать вопрос автоматически, если выбран какой-то вариант ответа <br>
-                            Показывать определенные варианты, если выбран какой-то вариант ответа <br>
+                            <div class = 'builderBlock'>
+                                <div class = 'bBlockInner'>
+                                    <div class='qVariantHeading'>
+                                        Настройки
+                                    </div>
+                                </div>
+
+                                <div class = 'bBlockInner'>
+                                    <div class = 'string inline-block'>
+                                        Ротация
+                                    </div>
+                                    <div class = 'float-right inline-block'>
+                                        <label class="switch qblock-items">
+                                            <input type="checkbox">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class = 'bBlockInner'>
+                                    <div class = 'string inline-block'>
+                                        "Другое"
+                                    </div>
+                                    <div class = 'float-right inline-block'>
+                                        <label class="switch qblock-items">
+                                            <input type="checkbox">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class = 'bBlockInner'>
+                                    <div class = 'string inline-block'>
+                                        "Ничего из перечисленного"
+                                    </div>
+                                    <div class = 'float-right inline-block'>
+                                        <label class="switch qblock-items">
+                                            <input type="checkbox">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class = 'bBlockInner'>
+                                    <div class = 'string inline-block'>
+                                        "Затрудняюсь ответить"
+                                    </div>
+                                    <div class = 'float-right inline-block'>
+                                        <label class="switch qblock-items">
+                                            <input type="checkbox">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class = 'bBlockInner'>
+                                    <span> Выровнять </span>
+                                    <a href="#" class = 'btn btn-default float-right'><i class = 'fa fa-align-left'></i></a>
+                                    <a href="#" class = 'btn btn-default float-right'><i class = 'fa fa-align-center'></i></a>
+                                    <a href="#" class = 'btn btn-default float-right'><i class = 'fa fa-align-right'></i></a>
+                                </div>
+                                <div class = 'bBlockInner'>
+                                    <span> Колонки </span>
+                                    <a href="#" class = 'btn btn-default float-right'>1</i></a>
+                                    <a href="#" class = 'btn btn-default float-right'>2</i></a>
+                                    <a href="#" class = 'btn btn-default float-right'>3</i></a>
+                                </div>
+                                <hr>
+                                Куда-то нужно добавить опции: <br>
+                                Закодировать вопрос автоматически, если выбран какой-то вариант ответа <br>
+                                Показывать определенные варианты, если выбран какой-то вариант ответа <br>
+                            </div>
                         </div>
                     </div>
 
