@@ -451,3 +451,129 @@ input:checked + .slider:before {
 .qVariantHeading{
     font-weight: bold;
 }
+
+
+
+/* Экран-приветствие для вопросов */
+
+.middleScreen{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.startButton{
+    border: 1px #1d766f solid;
+    display: inline-block;
+    background-color: #009D91;
+    width: 100px;
+    height: 55px;
+    border-radius: 2px;
+    vertical-align: top;
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+}
+.startButton:hover{
+    background-color: #5dcec6;
+    border: 1px #009D91 solid;
+}
+
+.startButtonText:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.startButtonText:visited {
+    color: #fff;
+    text-decoration: none;    
+}
+.startButtonText:link {
+    text-decoration: none;
+}
+
+.startButtonText{
+    color: white;
+    transform: translateY(45%);
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.pressEnterDiv{
+    display: inline-block;
+    height: 55px;
+    vertical-align: top;
+    margin: 10px;
+}
+.pressEnterText{
+    transform: translateY(75%);
+    display: block;
+    font-size: 12px;
+    color: #009D91;
+    text-decoration: none;
+}
+
+
+.hidiv{
+    display: block;
+    margin: 0 auto;
+    width: 700px;
+    height: 50%;
+    position: relative;
+}
+.hitext{
+    position: absolute;
+    bottom:0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+
+
+
+
+/* Вопрос */
+
+.qarea{
+    
+    width: 800px;
+    display: block;
+    margin: 0 auto;
+    transform: translateY(40%);
+    height: 100%;
+}
+.questiontext{
+    font-size: 24px;
+    display: block;    
+}
+
+.qcomment{
+    font-size: 16px;
+    display: block;
+    padding-left: 45px;
+}
+.qInput{
+    margin-left: 45px;
+    border: 0px;
+    width: 750px;
+    height: 50px;
+    font-size: 34px;
+    color: #009D91;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+.text-color{
+    color: #009D91;
+    font-size: 16px;
+}
+.text{
+    padding-left: 10px;
+}
+.margin{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
