@@ -41,8 +41,6 @@ class __TwigTemplate_e0bd48ca9239d701c03e860b662ad87f6923f4ac253e3ab9d3bb4bf0307
             echo ">
             ";
             // line 7
-            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo " ";
             echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
             echo "
         </div>
@@ -72,7 +70,7 @@ class __TwigTemplate_e0bd48ca9239d701c03e860b662ad87f6923f4ac253e3ab9d3bb4bf0307
 
     public function getDebugInfo()
     {
-        return array (  55 => 10,  44 => 7,  38 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
+        return array (  53 => 10,  44 => 7,  38 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
     }
 }
 /* <form action='process.php?qId={{question.id}}' method='post'>*/
@@ -81,7 +79,7 @@ class __TwigTemplate_e0bd48ca9239d701c03e860b662ad87f6923f4ac253e3ab9d3bb4bf0307
 /*         <div>*/
 /*             <input name ="{{key}}" id ="{{key}}" type='checkbox' value="true"*/
 /*                    {% if qData[key] == true %} checked = 'checked' {% endif %}>*/
-/*             {{key}} {{variant}}*/
+/*             {{variant}}*/
 /*         </div>*/
 /*     {% endfor %}*/
 /*     <br><br>*/

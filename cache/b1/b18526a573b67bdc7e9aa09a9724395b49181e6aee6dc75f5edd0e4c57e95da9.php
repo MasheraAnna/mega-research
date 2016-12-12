@@ -11,7 +11,9 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 
         $this->blocks = array(
             'head' => array($this, 'block_head'),
+            'header' => array($this, 'block_header'),
             'content' => array($this, 'block_content'),
+            'footer' => array($this, 'block_footer'),
         );
     }
 
@@ -24,22 +26,29 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
         ";
         // line 4
         $this->displayBlock('head', $context, $blocks);
-        // line 11
+        // line 18
         echo "    </head>
     <body>
         <header>
-        </header>
+            ";
+        // line 21
+        $this->displayBlock('header', $context, $blocks);
+        // line 23
+        echo "        </header>
         
         <div class='content'>
             ";
-        // line 17
+        // line 26
         $this->displayBlock('content', $context, $blocks);
-        // line 19
+        // line 28
         echo "        </div>
         
         <footer>
-        &copy; SPORTMASTER 2016
-        </footer>
+            ";
+        // line 31
+        $this->displayBlock('footer', $context, $blocks);
+        // line 33
+        echo "        </footer>
     </body>
 </html>
 ";
@@ -50,17 +59,38 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
     {
         // line 5
         echo "            <title>Questionnaire</title>
-            <meta http-equiv='Content-Type' content='text/html; charset=utf-8' title='Questionnaire'>
-            <link rel='stylesheet' href='public/stylesheets/styles.css' type='text/css'>
-            <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js\"></script>
+            <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" charset=utf-8' title='Questionnaire'>
+            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+            
             <script type=\"text/javascript\" src=\"lib/jquery-3.0.0.min.js\"></script>
+
+            <!-- Bootstrap -->
+            <link href=\"node_modules/bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\">
+            <!-- Font Awesome -->
+            <link href=\"public/stylesheets/font-awesome.css\" rel=\"stylesheet\">
+            <!-- Styles -->
+            <link href=\"public/stylesheets/st.css\" rel=\"stylesheet\">
         ";
     }
 
-    // line 17
+    // line 21
+    public function block_header($context, array $blocks = array())
+    {
+        // line 22
+        echo "            ";
+    }
+
+    // line 26
     public function block_content($context, array $blocks = array())
     {
-        // line 18
+        // line 27
+        echo "            ";
+    }
+
+    // line 31
+    public function block_footer($context, array $blocks = array())
+    {
+        // line 32
         echo "            ";
     }
 
@@ -71,7 +101,7 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 
     public function getDebugInfo()
     {
-        return array (  64 => 18,  61 => 17,  52 => 5,  49 => 4,  38 => 19,  36 => 17,  28 => 11,  26 => 4,  21 => 1,);
+        return array (  94 => 32,  91 => 31,  87 => 27,  84 => 26,  80 => 22,  77 => 21,  61 => 5,  58 => 4,  51 => 33,  49 => 31,  44 => 28,  42 => 26,  37 => 23,  35 => 21,  30 => 18,  28 => 4,  23 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -79,14 +109,23 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 /*     <head>*/
 /*         {% block head %}*/
 /*             <title>Questionnaire</title>*/
-/*             <meta http-equiv='Content-Type' content='text/html; charset=utf-8' title='Questionnaire'>*/
-/*             <link rel='stylesheet' href='public/stylesheets/styles.css' type='text/css'>*/
-/*             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>*/
+/*             <meta http-equiv="X-UA-Compatible" content="IE=edge" charset=utf-8' title='Questionnaire'>*/
+/*             <meta name="viewport" content="width=device-width, initial-scale=1">*/
+/*             */
 /*             <script type="text/javascript" src="lib/jquery-3.0.0.min.js"></script>*/
+/* */
+/*             <!-- Bootstrap -->*/
+/*             <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">*/
+/*             <!-- Font Awesome -->*/
+/*             <link href="public/stylesheets/font-awesome.css" rel="stylesheet">*/
+/*             <!-- Styles -->*/
+/*             <link href="public/stylesheets/st.css" rel="stylesheet">*/
 /*         {% endblock %}*/
 /*     </head>*/
 /*     <body>*/
 /*         <header>*/
+/*             {% block header %}*/
+/*             {% endblock %}*/
 /*         </header>*/
 /*         */
 /*         <div class='content'>*/
@@ -95,7 +134,8 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 /*         </div>*/
 /*         */
 /*         <footer>*/
-/*         &copy; SPORTMASTER 2016*/
+/*             {% block footer %}*/
+/*             {% endblock %}*/
 /*         </footer>*/
 /*     </body>*/
 /* </html>*/

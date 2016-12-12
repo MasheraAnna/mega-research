@@ -1,0 +1,18 @@
+	{% block content %}
+
+	    <div class='hidiv'>
+	       <span class = 'hitext'>{{question.qText}}</span>
+	    </div>
+	    <div class = 'middleScreen'>
+	    	<div class = 'startButton-container'>
+
+		        <form action='process.php?qId={{question.id}}' method='post'>
+		        	<input type = 'hidden' name ="0" id ="0" value = 'start'>
+		        	<button name = "next" id = "next" type= "submit" value = "next" class = "startButton"> Начать </button>
+		        </form>
+		    </div>
+	        <div class = 'pressEnterDiv'>
+	            <span class = 'pressEnterText'> нажмите ENTER </span>
+	        </div>
+	    </div>
+	{% endblock %}

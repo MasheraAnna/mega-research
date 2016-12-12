@@ -19,41 +19,47 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
         echo "<form action='process.php?qId=";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), "html", null, true);
         echo "' method='post'>
-
-    ";
-        // line 3
+    
+    <div class = 'variantes'>
+        ";
+        // line 4
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["variantes"]) ? $context["variantes"] : null));
         foreach ($context['_seq'] as $context["key"] => $context["variant"]) {
-            // line 4
-            echo "        <div>
-            <input name =\"name[]\" id =\"";
             // line 5
+            echo "            <div >
+                <input name = \"name[]\" id = \"";
+            // line 6
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\" type='radio' value=\"";
+            echo "\" type = 'radio' value = \"";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\"
-                   ";
-            // line 6
+                       ";
+            // line 7
             if (($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array") == "true")) {
                 echo " checked = 'checked' ";
             }
             echo " >
-            ";
-            // line 7
+                ";
+            // line 8
             echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
             echo "
-        </div>
-    ";
+            </div>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['variant'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 10
-        echo "    <br><br>
-
-    <button name = \"next\" id=\"next\" type=\"submit\" style=\"width: 180px\" value=\"next\"> Следующий вопрос>> </button></br></br>
-    <button name = \"prev\" id=\"prev\" type=\"submit\" style=\"width: 180px\" value=\"back\"> <<Предыдущий вопрос </button></br></br>
+        // line 11
+        echo "    </div>
+    <div class = 'buttons'>
+        <button name = \"prev\" id=\"prev\" type=\"submit\" value=\"back\"  class = 'arrow-btn'> 
+            <i class = 'fa fa-chevron-up fa-2x'></i>
+        </button>
+        <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn'>
+            <i class = 'fa fa-chevron-down fa-2x'></i>
+        </button>
+    </div>
 </form>
 ";
     }
@@ -70,21 +76,27 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
 
     public function getDebugInfo()
     {
-        return array (  53 => 10,  44 => 7,  38 => 6,  32 => 5,  29 => 4,  25 => 3,  19 => 1,);
+        return array (  54 => 11,  45 => 8,  39 => 7,  33 => 6,  30 => 5,  26 => 4,  19 => 1,);
     }
 }
 /* <form action='process.php?qId={{question.id}}' method='post'>*/
-/* */
-/*     {% for key, variant in variantes %}*/
-/*         <div>*/
-/*             <input name ="name[]" id ="{{key}}" type='radio' value="{{key}}"*/
-/*                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} >*/
-/*             {{variant}}*/
-/*         </div>*/
-/*     {% endfor %}*/
-/*     <br><br>*/
-/* */
-/*     <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>*/
-/*     <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button></br></br>*/
+/*     */
+/*     <div class = 'variantes'>*/
+/*         {% for key, variant in variantes %}*/
+/*             <div >*/
+/*                 <input name = "name[]" id = "{{key}}" type = 'radio' value = "{{key}}"*/
+/*                        {% if qData[key] == "true" %} checked = 'checked' {% endif %} >*/
+/*                 {{variant}}*/
+/*             </div>*/
+/*         {% endfor %}*/
+/*     </div>*/
+/*     <div class = 'buttons'>*/
+/*         <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> */
+/*             <i class = 'fa fa-chevron-up fa-2x'></i>*/
+/*         </button>*/
+/*         <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn'>*/
+/*             <i class = 'fa fa-chevron-down fa-2x'></i>*/
+/*         </button>*/
+/*     </div>*/
 /* </form>*/
 /* */

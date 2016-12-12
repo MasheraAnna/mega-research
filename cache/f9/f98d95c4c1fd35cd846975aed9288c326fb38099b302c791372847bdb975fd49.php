@@ -16,49 +16,51 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<form action='process.php?qId=";
+        echo "
+
+<form action='process.php?qId=";
+        // line 3
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "id", array()), "html", null, true);
         echo "' method='post'>
-    
-    ";
-        // line 3
+    <div class = 'variantes'>
+        ";
+        // line 5
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["variantes"]) ? $context["variantes"] : null));
         foreach ($context['_seq'] as $context["key"] => $context["variant"]) {
-            // line 4
-            echo "        <div>
-            <div class='q1'>
-                ";
-            // line 6
-            echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
-            echo "
-            </div>
+            echo "    
             <input name =\"";
-            // line 8
+            // line 6
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\" id =\"";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
-            echo "\" type='text'
+            echo "\" type='text' placeholder=\"";
+            echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
+            echo "\" 
             ";
-            // line 9
+            // line 7
             if ($this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array")) {
                 echo " value = '";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["qData"]) ? $context["qData"] : null), $context["key"], array(), "array"), "html", null, true);
                 echo "' ";
             }
-            echo " >
-            
-        </div>
-    ";
+            echo " class = 'qInput'>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['variant'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
-        echo "    <br><br>
+        // line 9
+        echo "    </div>
+    <div class = 'buttons'>
+        <button name = \"prev\" id=\"prev\" type=\"submit\" value=\"back\"  class = 'arrow-btn'> 
+            <i class = 'fa fa-chevron-up fa-2x'></i>
+        </button>
+        <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn'>
+            <i class = 'fa fa-chevron-down fa-2x'></i>
+        </button>
+    </div>
 
-    <button name = \"next\" id=\"next\" type=\"submit\" style=\"width: 180px\" value=\"next\"> Следующий вопрос>> </button></br></br>
-    <button name = \"prev\" id=\"prev\" type=\"submit\" style=\"width: 180px\" value=\"back\"> <<Предыдущий вопрос </button></br></br>
 </form>
 ";
     }
@@ -75,24 +77,26 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
 
     public function getDebugInfo()
     {
-        return array (  58 => 13,  44 => 9,  38 => 8,  33 => 6,  29 => 4,  25 => 3,  19 => 1,);
+        return array (  54 => 9,  42 => 7,  34 => 6,  28 => 5,  23 => 3,  19 => 1,);
     }
 }
-/* <form action='process.php?qId={{question.id}}' method='post'>*/
-/*     */
-/*     {% for key, variant in variantes %}*/
-/*         <div>*/
-/*             <div class='q1'>*/
-/*                 {{variant}}*/
-/*             </div>*/
-/*             <input name ="{{key}}" id ="{{key}}" type='text'*/
-/*             {% if qData[key] %} value = '{{qData[key]}}' {% endif %} >*/
-/*             */
-/*         </div>*/
-/*     {% endfor %}*/
-/*     <br><br>*/
 /* */
-/*     <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>*/
-/*     <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button></br></br>*/
+/* */
+/* <form action='process.php?qId={{question.id}}' method='post'>*/
+/*     <div class = 'variantes'>*/
+/*         {% for key, variant in variantes %}    */
+/*             <input name ="{{key}}" id ="{{key}}" type='text' placeholder="{{variant}}" */
+/*             {% if qData[key] %} value = '{{qData[key]}}' {% endif %} class = 'qInput'>*/
+/*         {% endfor %}*/
+/*     </div>*/
+/*     <div class = 'buttons'>*/
+/*         <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> */
+/*             <i class = 'fa fa-chevron-up fa-2x'></i>*/
+/*         </button>*/
+/*         <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn'>*/
+/*             <i class = 'fa fa-chevron-down fa-2x'></i>*/
+/*         </button>*/
+/*     </div>*/
+/* */
 /* </form>*/
 /* */

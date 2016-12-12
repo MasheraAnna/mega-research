@@ -1,0 +1,688 @@
+/* макет страницы в целом */
+html {
+    height: 100%;
+}
+body {
+    height: 100%;    
+}
+/* Эти задаются в base *********************/
+header {
+    height: 70px;
+    border: 1px solid #ccc;
+}
+.content{
+    height: calc(100% - 140px);
+    border: 1px solid #ccc;
+}
+footer {
+    height: 70px;
+    border: 1px solid #ccc;
+}
+/* внутри header*****************************/
+
+.greeting{
+    height: 50px;
+    border: 1px solid #ccc;
+    width: 900px;
+    display: block;
+    margin: 0 auto;
+    transform: translateY(30%);
+    font-size: 18px;
+    color: #5dcec6;
+}
+.greeting-text{
+    margin-left: 50px;
+}
+
+/* внутри content **************************/
+
+.qarea{
+    border: 1px solid #ccc;
+    width: 900px;
+    margin: 0 auto;
+    padding-left: 50px;
+}
+
+.qtext{
+    min-height: 100px;
+    border: 1px solid #ccc;
+}
+
+.variantes{
+    border: 1px solid #ccc;
+    min-height: 100px;
+    margin-bottom: 50px;
+}
+
+.buttons{
+    border: 1px solid #ccc;
+    text-align: right;
+}
+
+/* внутри footer ****************************/
+
+.menueArea{
+
+    border: 1px solid #ccc;
+    height: 70px;
+    color: #009D91;
+    background-color : #fafafa;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+}
+.menueAreaItem{
+    padding-left: 50px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    transform: translateY(50%);
+}
+.center-item-text{
+
+    font-size: 14px;
+    width: 850px;
+    text-align: left;
+    display: block;
+}
+.status-bar{
+    border: 1px #009D91 solid;
+    width: 650px;
+    height: 7px;
+    border-radius: 3px;
+}
+
+/**************************************************************************/
+
+/* qtext area */
+.center-qtext{
+    display: block;
+    margin: 0 auto;
+    width: 900px;
+    border: 1px solid #ccc;
+    font-size: 0;
+    vertical-align: top;
+}
+.number-and-arrow{
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 50px;
+    vertical-align: top;
+    margin-top: 7px;
+}
+
+.text{
+    font-size: 24px;
+    border: 1px solid #ccc;
+    width: calc(100% - 50px);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.text-color{
+    color: #009D91;
+    font-size: 16px;
+}
+
+
+/* Экран-приветствие для вопросов *******************************/
+
+.middleScreen{
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.startButton-container{
+    display: inline-block;
+}
+
+.startButton{
+    border: 1px #1d766f solid;
+    background-color: #009D91;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    width: 100px;
+    height: 55px;
+    border-radius: 2px;
+    vertical-align: top;
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+}
+.startButton:hover{
+    background-color: #5dcec6;
+    border: 1px #009D91 solid;
+}
+
+.pressEnterDiv{
+    display: inline-block;
+    height: 55px;
+    vertical-align: top;
+    margin: 10px;
+}
+
+.pressEnterText{
+    transform: translateY(75%);
+    display: block;
+    font-size: 12px;
+    color: #009D91;
+    text-decoration: none;
+}
+
+
+.hidiv{
+    display: block;
+    margin: 0 auto;
+    width: 700px;
+    height: 50%;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.hitext{
+    position: absolute;
+    bottom:0;
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    margin-bottom: 60px;
+}
+
+/* Стрелки вперед-назад */
+
+.arrow-btn{
+    width: 45px;
+    height: 43px;
+    background-color: #009D91;
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px #1d766f solid;
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);    
+    font-size: 12px;
+}
+
+.arrow-btn:hover {
+    background-color: #5dcec6;
+    border: 1px #009D91 solid;
+}
+
+
+
+
+/* Открытый вопрос */
+
+.variante{
+    font-size: 16px;
+    display: block;
+    color: #009D91;
+}
+
+.qInput{
+    border: 0px;
+    width: 750px;
+    height: 50px;
+    font-size: 24px;
+    color: #009D91;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+/* доп свойства для вопроса с двумя вариантами */
+
+.answers{
+    margin-left: 45px;
+}
+
+.answers-extra{
+    margin-left: 45px;    
+    margin-top: 30px;
+    color: #ccc;
+    display: block;
+    width: 370px;
+}
+
+
+
+.answer-extra-item{
+    margin-top: 10px;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.answer-item-sm{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #009D91;
+}
+
+.answer-item-md{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #009D91;
+    width: 70%;
+}
+
+.answer-item-lg{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #009D91;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.horiz-list{
+    display: inline-block;
+    width: 200px;
+}
+
+.vert-list{
+    display: block;
+    margin-bottom: 10px;
+    width: 600px;
+}
+
+
+.answer-num{
+    width: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+.answer-text{
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: top;
+    max-width : 540px;
+}
+
+.answer-text-2col{
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: top;
+    max-width : 300px;
+}
+
+/* отказ от ответа, другое */
+
+.grey-text{
+    color: #ccc;
+    border: 0px;
+}
+.other{
+    padding-left : 10px;
+    margin-left: 10px;
+}
+.horiz-list-lg{
+    display: inline-block;
+    width: 390px;
+    margin-right: 10px;
+    margin-bottom: 10px; 
+}
+
+/* table */
+
+.table td {
+    text-align: center;
+}
+.table th {
+    text-align: center;
+    color: #009D91;
+}
+.table td.tVariant {
+    text-align: left;    
+}
+
+
+/* scale question display variant 2 */
+
+.answers-area{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.answers-sc{
+    margin-left: 45px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+.scale {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+.scale-item{
+    display: block;
+    width: 230px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 36px;
+}
+.scale-blanck{
+    display: block;
+    width: 230px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 36px;
+    background-color: #ccc;
+}
+
+
+.vert-list-sm{
+    display: block;
+    margin-bottom: 10px;
+    width: 350px;
+}
+.answers-comment{
+    height: 20px;
+    margin-bottom: 10px;
+    color: #009D91;
+    font-size: 14px;
+}
+.scale-comment{
+    height: 20px;
+    margin-bottom: 10px;
+    color: #009D91;
+    font-size: 14px;
+}
+
+
+/* scale question display variant 3 */
+
+.scale-area{
+    margin-top: 30px;
+    margin-left: 45px;
+}
+
+.scale-horisont{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.scale-horisont-comment{
+    height: 20px;
+    margin-bottom: 10px;
+    color: #009D91;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;    
+}
+.scale-h-item{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;    
+}
+.vert-list-md{
+    display: block;
+    margin-bottom: 10px;
+    width: 570px;
+}
+
+/* вопрос: оценка высказываний по шкале */
+
+.aa-statement{
+    margin-left: 45px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: table;
+    height: 200px;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+}
+.sta-statement{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 24px;
+    color: #009D91;
+    text-align: center;
+}
+
+.scale-h-text{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;    
+}
+.scale-horisont-comment-bl{
+    height: 20px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.sh-comment-left{
+    float: left;
+}
+.sh-comment-right{
+    float: right;
+}
+.scale-area-narrow{
+    margin-left: 45px;
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 100%;
+}
+.scale-h-item-square{
+    border: 1px solid #009D91;
+    background-color: #009D91;
+    color: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;   
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+}
+
+.scale-h-item-square:hover{
+    background-color: #5dcec6;
+    color: #fff;
+    text-decoration: none;
+}
+.scale-h-item-square:visited{
+    color: #fff;
+    text-decoration: none;
+}
+.scale-h-item-square:link{
+    color: #fff;
+    text-decoration: none;
+}
+.scale-h-item-square:active{
+    -webkit-box-shadow: 3px 5px 5px -5px rgba(0,0,0,0.75) inset;
+    -moz-box-shadow: 3px 5px 5px -5px rgba(0,0,0,0.75) inset;
+    box-shadow: 3px 5px 5px -5px rgba(0,0,0,0.75) inset;    
+}
+
+/*
+.horisont-arrows{
+    font-size: 24px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    color: #ccc;
+    margin-bottom: 50px;
+}
+.h-arrow{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+*/
+
+/* U&A Statements */
+
+.answers-part{
+    width: 100%;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.brand-place{
+    width: 200px;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    display: block;
+    vertical-align: top;
+    margin: 0 auto;
+}
+
+.brand-place-sm{
+    width: 150px;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    display: block;
+    vertical-align: top;
+    margin: 0 auto;
+}
+
+.ua-statements-block{
+    display: block;
+    margin: 0 auto;
+    width: 510px;    
+}
+
+.ua-statements-block-2col{
+    display: block;
+    margin: 0 auto;
+    width: 710px;    
+}
+
+.ua-statement{
+    border: 1px solid #ccc;
+    display: block;
+    width: 500px;
+    min-height: 50px;
+    vertical-align: top;
+    margin: 5px;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-align: center;
+    border-radius: 3px;
+    color: #009D91;
+    font-size: 18px;
+}
+
+
+.ua-statement-2col{
+    border: 1px solid #ccc;
+    display: inline-block;
+    width: 700px;
+    min-height: 30px;
+    vertical-align: top;
+    margin: 5px;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-align: center;
+    border-radius: 3px;
+    color: #009D91;
+    font-size: 18px;
+}
+
+.category-to-check{
+    width: 700px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.category-to-check-sm{
+    width: 700px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+
+
+/* вопрос с брендами вместо ответов */
+.answer-area-square{
+    display: inline-block;
+    margin: 5px;
+    width: 200px;
+    vertical-align: top;
+}
+.brand-pic{
+    vertical-align: top;
+    display: block;
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 0 auto;    
+}
+.brand-label{
+    vertical-align: top;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Сумма по ответам */

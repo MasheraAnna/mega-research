@@ -1,22 +1,60 @@
 {% extends 'base.html'%}
 
-{% block content %}
-    <div class='greeting'>
-        {% if name %}
-            Добрый день, {{name[1]}} {{name[2]}}!
-        {% else %}
-            Добрый день!
-        {% endif %}
-        Ваше участие очень важно для нас! Пожалуйста, заполните анкету до конца.
-    </div>
 
-    <div class='question'>
-        </br></br>
-        {{question.qNum}}
-        {{question.qText}}
-        </br></br>
-    </div>
-    <div class = 'variantes'>    
-        {% include question.qView~'.html' %}
-    </div>
+{% block header %}
+    {% if question.qView == 'start' or question.qView == 'last' %}
+    {% else %}
+        <div class='greeting'>
+            <div class='greeting-text'>
+                {% if name %}
+                    Добрый день, {{name[1]}} {{name[2]}}!
+                {% else %}
+                    Добрый день!
+                {% endif %}
+                Ваше участие очень важно! Пожалуйста, заполните анкету до конца.
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+        {% if question.qView == 'start' or question.qView == 'last' %}
+                {% include question.qView~'.html' %}
+        {% else %}
+        
+        <div class = 'qtext'>
+            <div class = "center-qtext">
+                <div class = 'number-and-arrow'>
+                    <span class = 'text-color'> {{question.qNum}} </span>
+                    <i class = 'fa fa-arrow-right text-color'></i>
+                </div>
+                <div class= 'text'> {{question.qText}} </div>
+            </div>
+        </div>
+        <div class='qarea'>
+            {% include question.qView~'.html' %}
+        </div>
+        {% endif %}
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+    {% if question.qView == 'start' or question.qView == 'last' %}
+    {% else %}
+        <div class = 'menueArea'>
+            
+            <div class = 'menueAreaItem center-item'> 
+                <span class = 'center-item-text'> % заполнено </span>
+                <div class = 'status-bar'>  </div>
+            </div>
+            
+        </div>
+    {% endif %}
 {% endblock %}
