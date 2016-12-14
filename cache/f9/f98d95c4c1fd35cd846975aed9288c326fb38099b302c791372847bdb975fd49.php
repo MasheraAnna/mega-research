@@ -16,7 +16,7 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "
+        echo "<script type=\"text/javascript\" src = 'public/javascripts/if_inputs_full.js'> </script>
 
 <form action='process.php?qId=";
         // line 3
@@ -35,7 +35,7 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
             echo "\" id =\"";
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\" type='text' placeholder=\"";
-            echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["variant"], "answer_text", array(), "array"), "html", null, true);
             echo "\" 
             ";
             // line 7
@@ -56,12 +56,14 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
         <button name = \"prev\" id=\"prev\" type=\"submit\" value=\"back\"  class = 'arrow-btn'> 
             <i class = 'fa fa-chevron-up fa-2x'></i>
         </button>
-        <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn'>
+        <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn' >
             <i class = 'fa fa-chevron-down fa-2x'></i>
         </button>
     </div>
-
 </form>
+
+
+
 ";
     }
 
@@ -80,12 +82,12 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
         return array (  54 => 9,  42 => 7,  34 => 6,  28 => 5,  23 => 3,  19 => 1,);
     }
 }
-/* */
+/* <script type="text/javascript" src = 'public/javascripts/if_inputs_full.js'> </script>*/
 /* */
 /* <form action='process.php?qId={{question.id}}' method='post'>*/
 /*     <div class = 'variantes'>*/
 /*         {% for key, variant in variantes %}    */
-/*             <input name ="{{key}}" id ="{{key}}" type='text' placeholder="{{variant}}" */
+/*             <input name ="{{key}}" id ="{{key}}" type='text' placeholder="{{variant['answer_text']}}" */
 /*             {% if qData[key] %} value = '{{qData[key]}}' {% endif %} class = 'qInput'>*/
 /*         {% endfor %}*/
 /*     </div>*/
@@ -93,10 +95,12 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
 /*         <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> */
 /*             <i class = 'fa fa-chevron-up fa-2x'></i>*/
 /*         </button>*/
-/*         <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn'>*/
+/*         <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn' >*/
 /*             <i class = 'fa fa-chevron-down fa-2x'></i>*/
 /*         </button>*/
 /*     </div>*/
-/* */
 /* </form>*/
+/* */
+/* */
+/* */
 /* */

@@ -6,7 +6,8 @@
     {% else %}
         <div class='greeting'>
             <div class='greeting-text'>
-                {% if name %}
+
+                {% if name[1] != false %}
                     Добрый день, {{name[1]}} {{name[2]}}!
                 {% else %}
                     Добрый день!
@@ -33,13 +34,20 @@
                     <i class = 'fa fa-arrow-right text-color'></i>
                 </div>
                 <div class= 'text'> {{question.qText}} </div>
+                
+            </div>
+
+        
+            <div class = "center-qtext">
+                <div class = 'number-and-arrow'></div>
+                <div class= 'comment'> {{question.qComment}} </div>
             </div>
         </div>
+
         <div class='qarea'>
             {% include question.qView~'.html' %}
         </div>
         {% endif %}
-
 
 {% endblock %}
 

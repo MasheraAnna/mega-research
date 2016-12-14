@@ -1,13 +1,17 @@
+<script type = 'text/javascript' src = "public/javascripts/buttons.js"> </script>
+
 <form action='process.php?qId={{question.id}}' method='post'>
     
     <div class = 'variantes'>
         {% for key, variant in variantes %}
-            <div >
+            <div class = 'answer-item-sm-horisont' id = "answer-{{key}}">
                 <input name = "name[]" id = "{{key}}" type = 'radio' value = "{{key}}"
-                       {% if qData[key] == "true" %} checked = 'checked' {% endif %} >
-                {{variant}}
+                   {% if qData[key] == "true" %} checked = 'checked' {% endif %} >
+                <div class = 'answer-num'> {{variant['answerIndex']}} </div>
+                <div class = 'answer-text'> {{variant['answer_text']}} </div>
             </div>
         {% endfor %}
+        
     </div>
     <div class = 'buttons'>
         <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> 

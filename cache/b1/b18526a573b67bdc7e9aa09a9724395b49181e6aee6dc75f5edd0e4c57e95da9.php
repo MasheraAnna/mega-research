@@ -26,29 +26,30 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
         ";
         // line 4
         $this->displayBlock('head', $context, $blocks);
-        // line 18
+        // line 19
         echo "    </head>
     <body>
         <header>
             ";
-        // line 21
+        // line 22
         $this->displayBlock('header', $context, $blocks);
-        // line 23
+        // line 24
         echo "        </header>
         
         <div class='content'>
             ";
-        // line 26
+        // line 27
         $this->displayBlock('content', $context, $blocks);
-        // line 28
+        // line 29
         echo "        </div>
         
         <footer>
             ";
-        // line 31
+        // line 32
         $this->displayBlock('footer', $context, $blocks);
-        // line 33
+        // line 34
         echo "        </footer>
+
     </body>
 </html>
 ";
@@ -69,28 +70,29 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
             <!-- Font Awesome -->
             <link href=\"public/stylesheets/font-awesome.css\" rel=\"stylesheet\">
             <!-- Styles -->
-            <link href=\"public/stylesheets/st.css\" rel=\"stylesheet\">
+            <link href=\"public/stylesheets/styles.css\" rel=\"stylesheet\">
+            
         ";
     }
 
-    // line 21
+    // line 22
     public function block_header($context, array $blocks = array())
     {
-        // line 22
+        // line 23
         echo "            ";
     }
 
-    // line 26
+    // line 27
     public function block_content($context, array $blocks = array())
     {
-        // line 27
+        // line 28
         echo "            ";
     }
 
-    // line 31
+    // line 32
     public function block_footer($context, array $blocks = array())
     {
-        // line 32
+        // line 33
         echo "            ";
     }
 
@@ -101,7 +103,7 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 
     public function getDebugInfo()
     {
-        return array (  94 => 32,  91 => 31,  87 => 27,  84 => 26,  80 => 22,  77 => 21,  61 => 5,  58 => 4,  51 => 33,  49 => 31,  44 => 28,  42 => 26,  37 => 23,  35 => 21,  30 => 18,  28 => 4,  23 => 1,);
+        return array (  96 => 33,  93 => 32,  89 => 28,  86 => 27,  82 => 23,  79 => 22,  62 => 5,  59 => 4,  51 => 34,  49 => 32,  44 => 29,  42 => 27,  37 => 24,  35 => 22,  30 => 19,  28 => 4,  23 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -119,7 +121,8 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 /*             <!-- Font Awesome -->*/
 /*             <link href="public/stylesheets/font-awesome.css" rel="stylesheet">*/
 /*             <!-- Styles -->*/
-/*             <link href="public/stylesheets/st.css" rel="stylesheet">*/
+/*             <link href="public/stylesheets/styles.css" rel="stylesheet">*/
+/*             */
 /*         {% endblock %}*/
 /*     </head>*/
 /*     <body>*/
@@ -137,6 +140,7 @@ class __TwigTemplate_edf8f44984f1347a006f074e5911307d28121122f22d9e00741817063e8
 /*             {% block footer %}*/
 /*             {% endblock %}*/
 /*         </footer>*/
+/* */
 /*     </body>*/
 /* </html>*/
 /* */

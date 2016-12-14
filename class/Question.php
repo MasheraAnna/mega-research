@@ -209,7 +209,7 @@ class Question {
             $qId = mysqli_real_escape_string($this->connection,$this->id);
 
             // выбираем те варианты, у которых есть условие и оно выполняется
-            $queryForVConditions = "SELECT aconditions.aId, answers.answer_text FROM `aconditions` 
+            $queryForVConditions = "SELECT aconditions.aId, answers.answer_text, answers.answerIndex FROM `aconditions` 
                             INNER JOIN `data` ON data.aId = aconditions.relatedAId AND data.answer = aconditions.equals 
                             INNER JOIN `answers` ON aconditions.aId = answers.id  
                             WHERE answers.qId = '$qId' AND data.respId = '$respId'";
@@ -218,19 +218,19 @@ class Question {
 
             if (mysqli_num_rows($resultVConditions)){
                 while ($rowVConditions = mysqli_fetch_assoc($resultVConditions)){
-                    $currentVariantes[$rowVConditions['aId']]=$rowVConditions['answer_text'];
+                    $currentVariantes[$rowVConditions['aId']] = ['answer_text' => $row['answer_text'], 'answerIndex' => $row['answerIndex']];
                 }
             }
 
             // выбираем те варианты, у которых нет условия
-            $queryForVNoConditions = "SELECT answers.id, answers.answer_text FROM `answers` 
+            $queryForVNoConditions = "SELECT answers.id, answers.answer_text, answers.answerIndex FROM `answers` 
                             LEFT OUTER JOIN `aconditions` ON aconditions.aId = answers.id  
                             WHERE aconditions.id IS NULL AND answers.qId = '$qId'";
             $resultForVNoConditions = mysqli_query($this->connection, $queryForVNoConditions);
 
             if (mysqli_num_rows($resultForVNoConditions)){
                 while ($rowVNoConditions = mysqli_fetch_assoc($resultForVNoConditions)){
-                    $currentVariantes[$rowVNoConditions['id']]=$rowVNoConditions['answer_text'];
+                    $currentVariantes[$rowVNoConditions['id']] = ['answer_text' => $row['answer_text'], 'answerIndex' => $row['answerIndex']];
                 }
             }
 
@@ -240,7 +240,7 @@ class Question {
             $queryForVariantes = "SELECT answers.id, answers.answer_text, answers.answerIndex FROM `answers` WHERE answers.qId = '$qId'";
             $resultVariantes = mysqli_query($this->connection, $queryForVariantes);
             while ($row = mysqli_fetch_assoc($resultVariantes)){
-                $currentVariantes[$row['id']] = $row['answer_text'];
+                $currentVariantes[$row['id']] = ['answer_text' => $row['answer_text'], 'answerIndex' => $row['answerIndex']]; 
             }            
         }
 

@@ -38,10 +38,11 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
             // line 7
             echo "        <div class='greeting'>
             <div class='greeting-text'>
+
                 ";
-            // line 9
-            if ((isset($context["name"]) ? $context["name"] : null)) {
-                // line 10
+            // line 10
+            if (($this->getAttribute((isset($context["name"]) ? $context["name"] : null), 1, array(), "array") != false)) {
+                // line 11
                 echo "                    Добрый день, ";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["name"]) ? $context["name"] : null), 1, array(), "array"), "html", null, true);
                 echo " ";
@@ -49,11 +50,11 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
                 echo "!
                 ";
             } else {
-                // line 12
+                // line 13
                 echo "                    Добрый день!
                 ";
             }
-            // line 14
+            // line 15
             echo "                Ваше участие очень важно! Пожалуйста, заполните анкету до конца.
             </div>
         </div>
@@ -61,62 +62,72 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
         }
     }
 
-    // line 22
+    // line 23
     public function block_content($context, array $blocks = array())
     {
-        // line 23
+        // line 24
         echo "
 
         ";
-        // line 25
+        // line 26
         if ((($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) == "start") || ($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) == "last"))) {
-            // line 26
-            echo "                ";
-            $this->loadTemplate(($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) . ".html"), "index.html", 26)->display($context);
             // line 27
+            echo "                ";
+            $this->loadTemplate(($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) . ".html"), "index.html", 27)->display($context);
+            // line 28
             echo "        ";
         } else {
-            // line 28
+            // line 29
             echo "        
         <div class = 'qtext'>
             <div class = \"center-qtext\">
                 <div class = 'number-and-arrow'>
                     <span class = 'text-color'> ";
-            // line 32
+            // line 33
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qNum", array()), "html", null, true);
             echo " </span>
                     <i class = 'fa fa-arrow-right text-color'></i>
                 </div>
                 <div class= 'text'> ";
-            // line 35
+            // line 36
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qText", array()), "html", null, true);
+            echo " </div>
+                
+            </div>
+
+        
+            <div class = \"center-qtext\">
+                <div class = 'number-and-arrow'></div>
+                <div class= 'comment'> ";
+            // line 43
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qComment", array()), "html", null, true);
             echo " </div>
             </div>
         </div>
+
         <div class='qarea'>
             ";
-            // line 39
-            $this->loadTemplate(($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) . ".html"), "index.html", 39)->display($context);
-            // line 40
+            // line 48
+            $this->loadTemplate(($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) . ".html"), "index.html", 48)->display($context);
+            // line 49
             echo "        </div>
         ";
         }
-        // line 42
+        // line 51
         echo "
-
 ";
     }
 
-    // line 48
+    // line 56
     public function block_footer($context, array $blocks = array())
     {
-        // line 49
+        // line 57
         echo "    ";
         if ((($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) == "start") || ($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) == "last"))) {
-            // line 50
+            // line 58
             echo "    ";
         } else {
-            // line 51
+            // line 59
             echo "        <div class = 'menueArea'>
             
             <div class = 'menueAreaItem center-item'> 
@@ -141,7 +152,7 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
 
     public function getDebugInfo()
     {
-        return array (  120 => 51,  117 => 50,  114 => 49,  111 => 48,  105 => 42,  101 => 40,  99 => 39,  92 => 35,  86 => 32,  80 => 28,  77 => 27,  74 => 26,  72 => 25,  68 => 23,  65 => 22,  57 => 14,  53 => 12,  45 => 10,  43 => 9,  39 => 7,  36 => 6,  33 => 5,  30 => 4,  11 => 1,);
+        return array (  131 => 59,  128 => 58,  125 => 57,  122 => 56,  117 => 51,  113 => 49,  111 => 48,  103 => 43,  93 => 36,  87 => 33,  81 => 29,  78 => 28,  75 => 27,  73 => 26,  69 => 24,  66 => 23,  58 => 15,  54 => 13,  46 => 11,  44 => 10,  39 => 7,  36 => 6,  33 => 5,  30 => 4,  11 => 1,);
     }
 }
 /* {% extends 'base.html'%}*/
@@ -152,7 +163,8 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
 /*     {% else %}*/
 /*         <div class='greeting'>*/
 /*             <div class='greeting-text'>*/
-/*                 {% if name %}*/
+/* */
+/*                 {% if name[1] != false %}*/
 /*                     Добрый день, {{name[1]}} {{name[2]}}!*/
 /*                 {% else %}*/
 /*                     Добрый день!*/
@@ -179,13 +191,20 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
 /*                     <i class = 'fa fa-arrow-right text-color'></i>*/
 /*                 </div>*/
 /*                 <div class= 'text'> {{question.qText}} </div>*/
+/*                 */
+/*             </div>*/
+/* */
+/*         */
+/*             <div class = "center-qtext">*/
+/*                 <div class = 'number-and-arrow'></div>*/
+/*                 <div class= 'comment'> {{question.qComment}} </div>*/
 /*             </div>*/
 /*         </div>*/
+/* */
 /*         <div class='qarea'>*/
 /*             {% include question.qView~'.html' %}*/
 /*         </div>*/
 /*         {% endif %}*/
-/* */
 /* */
 /* {% endblock %}*/
 /* */

@@ -101,6 +101,7 @@ footer {
     border: 1px solid #ccc;
     font-size: 0;
     vertical-align: top;
+    margin-bottom: 20px;
 }
 .number-and-arrow{
     display: inline-block;
@@ -123,6 +124,13 @@ footer {
     font-size: 16px;
 }
 
+.comment{
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: calc(100% - 50px);
+    display: inline-block;
+    vertical-align: top;
+}
 
 /* Экран-приветствие для вопросов *******************************/
 
@@ -208,6 +216,21 @@ footer {
     font-size: 12px;
 }
 
+.arrow-btn-disabled{
+    width: 45px;
+    height: 43px;
+    background-color: #5dcec6;
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px #1d766f solid;
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);    
+    font-size: 12px;
+}
+
 .arrow-btn:hover {
     background-color: #5dcec6;
     border: 1px #009D91 solid;
@@ -236,8 +259,12 @@ footer {
     margin-bottom: 10px;
 }
 
-
-
+/*
+input::-webkit-input-placeholder {color:#5dcec6;}
+input::-moz-placeholder{color:#5dcec6;}
+input:-moz-placeholder           {color:#5dcec6;}
+input::-ms-input-placeholder      {color:#5dcec6;}
+*/
 
 
 
@@ -265,7 +292,7 @@ footer {
 
 }
 
-.answer-item-sm{
+.answer-item-sm-horisont{
     border: 1px solid #ccc;
     padding: 3px;
     padding-right: 10px;
@@ -273,6 +300,8 @@ footer {
     border: 1px solid #ccc;
     border-radius: 3px;
     color: #009D91;
+    display: inline-block;
+    width: 200px;
 }
 
 .answer-item-md{
@@ -296,11 +325,6 @@ footer {
     color: #009D91;
     width: 100%;
     margin-bottom: 10px;
-}
-
-.horiz-list{
-    display: inline-block;
-    width: 200px;
 }
 
 .vert-list{
