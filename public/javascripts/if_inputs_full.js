@@ -9,16 +9,21 @@ function check_values (inputs){
 };
 
 function enable_button_next (values){
-    if (values.length == 3){
+    if (values.length == $("input").length){
         $("#next").attr("disabled", false);
         $("#next").attr("class", "arrow-btn");
+    } else {
+        $("#next").attr("disabled", true);
+        $("#next").attr("class", "arrow-btn-disabled");
     };
 };
 
 $(document).ready(function(){
+
     $("#next").attr("disabled", true);
     $("#next").attr("class", "arrow-btn-disabled");
     var values = check_values ($("input"));
+
     enable_button_next (values);
 
 

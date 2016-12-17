@@ -1,0 +1,20 @@
+<form action='process.php?qId={{question.id}}' method='post'>
+    
+    {% for key, variant in variantes %}
+        <div>
+            <div class = 'answer-item-lg-grey' id = "answer-{{key}}">
+                <input name ="{{key}}" id ="{{key}}" type='checkbox' value="true"
+                       {% if qData[key] == true %} checked = 'checked' {% endif %}>
+                {{variant["answer_text"]}}
+            </div>
+        </div>
+    {% endfor %}
+    <br><br>
+
+    <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> 
+        <i class = 'fa fa-chevron-left fa-2x move_left'></i>
+    </button>
+    <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn'>
+        <i class = 'fa fa-chevron-right fa-2x move_right'></i>
+    </button>
+</form>

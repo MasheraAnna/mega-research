@@ -37,6 +37,11 @@ footer {
 /* внутри content **************************/
 
 .qarea{
+    /* высота этой зоны должна задаваться js в зависимости от высоты зоны приветствия и зоны вопроса*/
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+.qarea-inner{
     border: 1px solid #ccc;
     width: 900px;
     margin: 0 auto;
@@ -52,6 +57,16 @@ footer {
     border: 1px solid #ccc;
     min-height: 100px;
     margin-bottom: 50px;
+}
+
+.variantes-2col{
+    border: 1px solid #ccc;
+    min-height: 100px;
+    margin-bottom: 50px;
+    columns: 410px 2;
+    column-gap: 25px;
+    font-size: 0;
+
 }
 
 .buttons{
@@ -216,6 +231,14 @@ footer {
     font-size: 12px;
 }
 
+.move_right{
+    padding-left: 5px;
+}
+
+.move_left{
+    padding-right: 5px;    
+}
+
 .arrow-btn-disabled{
     width: 45px;
     height: 43px;
@@ -259,6 +282,7 @@ footer {
     margin-bottom: 10px;
 }
 
+
 /*
 input::-webkit-input-placeholder {color:#5dcec6;}
 input::-moz-placeholder{color:#5dcec6;}
@@ -268,31 +292,31 @@ input::-ms-input-placeholder      {color:#5dcec6;}
 
 
 
-/* доп свойства для вопроса с двумя вариантами */
+/* свойства для вопроса c заданным числом вариантов ********************/
 
-.answers{
-    margin-left: 45px;
+
+.tick-hidden{
+    vertical-align: top;
+    display: none;
 }
 
-.answers-extra{
-    margin-left: 45px;    
-    margin-top: 30px;
-    color: #ccc;
-    display: block;
-    width: 370px;
+.tick-shown{
+    vertical-align: top;
+    border: 1px solid #ccc;
+    width: 26px;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    float: right;
 }
 
-
-
-.answer-extra-item{
-    margin-top: 10px;
-    padding: 3px;
-    padding-right: 10px;
-    padding-left: 10px;
-
+.hiddenInput{
+    display: none;
 }
 
-.answer-item-sm-horisont{
+/*маленькие ответы в строку */
+
+.answer-item-sm-grey{
     border: 1px solid #ccc;
     padding: 3px;
     padding-right: 10px;
@@ -301,7 +325,121 @@ input::-ms-input-placeholder      {color:#5dcec6;}
     border-radius: 3px;
     color: #009D91;
     display: inline-block;
+    margin-bottom: 10px;
+
+    min-width: 200px;
+    background-color: #f5f5f5;
+}
+
+
+.answer-item-sm-grey:hover{
+    background-color: #fff;
+}
+
+.answer-item-sm{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #009D91;
+    margin-bottom: 10px;
+
+    display: inline-block;
+    min-width: 200px;
+
+    background-color: #fff;
+}
+
+.answer-item-sm:hover{
+    background-color: #f5f5f5;
+    border: 1px solid #888;
+}
+
+/*маленькие ответы в столбик */
+.answer-item-sm-1col{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: #009D91;
+    margin-bottom: 10px;
+
+    display: block;
     width: 200px;
+
+    background-color: #fff;
+}
+
+.answer-item-sm-1col:hover{
+    background-color: #f5f5f5;
+    border: 1px solid #888;
+}
+
+
+.answer-item-sm-1col-grey{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: #009D91;
+    display: block;
+    margin-bottom: 10px;
+    
+    width: 200px;
+    background-color: #f5f5f5;
+}
+
+
+.answer-item-sm-1col-grey:hover{
+    background-color: #fff;
+}
+
+
+
+/*маленькие ответы в столбик без границы*/
+.answer-item-sm-noborder{
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: #009D91;
+    margin-bottom: 10px;
+
+    display: block;
+    width: 200px;
+
+    background-color: #fff;
+}
+
+.answer-item-sm-noborder:hover{
+    background-color: #f5f5f5;
+    border: 1px solid #888;
+}
+
+
+
+
+/* средние по размеру ответы */
+
+.answer-item-md-grey{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: #009D91;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+
+    width: 70%;
+}
+
+.answer-item-md-grey:hover{
+    background-color: #fff;
 }
 
 .answer-item-md{
@@ -309,30 +447,58 @@ input::-ms-input-placeholder      {color:#5dcec6;}
     padding: 3px;
     padding-right: 10px;
     padding-left: 10px;
-    border: 1px solid #ccc;
     border-radius: 3px;
     color: #009D91;
+    margin-bottom: 10px;
+    
     width: 70%;
 }
+
+.answer-item-md:hover{
+    background-color: #f5f5f5;
+    border: 1px solid #888;
+}
+
+
+
+/* большие ответы */
 
 .answer-item-lg{
     border: 1px solid #ccc;
     padding: 3px;
     padding-right: 10px;
     padding-left: 10px;
-    border: 1px solid #ccc;
     border-radius: 3px;
     color: #009D91;
+    margin-bottom: 10px;
+    
+    margin-bottom: 10px;
     width: 100%;
-    margin-bottom: 10px;
 }
 
-.vert-list{
-    display: block;
-    margin-bottom: 10px;
-    width: 600px;
+.answer-item-lg:hover{
+    background-color: #f5f5f5;
 }
 
+.answer-item-lg-grey{
+    border: 1px solid #ccc;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 3px;
+    color: #009D91;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.answer-item-lg-grey:hover{
+    background-color: #fff;
+}
+
+/* внутри блока с ответом */
 
 .answer-num{
     width: 20px;
@@ -344,13 +510,37 @@ input::-ms-input-placeholder      {color:#5dcec6;}
     margin-right: 10px;
     vertical-align: top;
     margin-top: 3px;
+    color: #5dcec6;
+}
+
+.answer-num-grey{
+    width: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    vertical-align: top;
+    margin-top: 3px;
+    color: #ccc;
 }
 
 .answer-text{
+    border: 1px solid #ccc;
     display: inline-block;
     font-size: 20px;
     vertical-align: top;
     max-width : 540px;
+}
+
+.answer-text-grey {
+    border: 1px solid #ccc;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: top;
+    max-width : 540px;
+    color: #ccc;
 }
 
 .answer-text-2col{
@@ -359,6 +549,16 @@ input::-ms-input-placeholder      {color:#5dcec6;}
     vertical-align: top;
     max-width : 300px;
 }
+
+.input-other{
+    display: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+    padding-left: 5px;
+    width: 200px;
+}
+
 
 /* отказ от ответа, другое */
 

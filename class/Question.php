@@ -218,7 +218,7 @@ class Question {
 
             if (mysqli_num_rows($resultVConditions)){
                 while ($rowVConditions = mysqli_fetch_assoc($resultVConditions)){
-                    $currentVariantes[$rowVConditions['aId']] = ['answer_text' => $row['answer_text'], 'answerIndex' => $row['answerIndex']];
+                    $currentVariantes[$rowVConditions['aId']] = ['answer_text' => $rowVConditions['answer_text'], 'answerIndex' => $rowVConditions['answerIndex']];
                 }
             }
 
@@ -230,7 +230,7 @@ class Question {
 
             if (mysqli_num_rows($resultForVNoConditions)){
                 while ($rowVNoConditions = mysqli_fetch_assoc($resultForVNoConditions)){
-                    $currentVariantes[$rowVNoConditions['id']] = ['answer_text' => $row['answer_text'], 'answerIndex' => $row['answerIndex']];
+                    $currentVariantes[$rowVNoConditions['id']] = ['answer_text' => $rowVNoConditions['answer_text'], 'answerIndex' => $rowVNoConditions['answerIndex']];
                 }
             }
 

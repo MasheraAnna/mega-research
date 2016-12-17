@@ -50,7 +50,7 @@ class __TwigTemplate_2d48137db7d8a5c077fefbd6a17acded3e8b0a645112a70443a2f238591
                 <td>
                     ";
             // line 14
-            echo twig_escape_filter($this->env, $context["variant"], "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($context["variant"], "answer_text", array(), "array"), "html", null, true);
             echo "
                 </td>
                 ";
@@ -94,8 +94,12 @@ class __TwigTemplate_2d48137db7d8a5c077fefbd6a17acded3e8b0a645112a70443a2f238591
 
     <br><br>
 
-    <button name = \"next\" id=\"next\" type=\"submit\" style=\"width: 180px\" value=\"next\"> Следующий вопрос>> </button></br></br>
-    <button name = \"prev\" id=\"prev\" type=\"submit\" style=\"width: 180px\" value=\"back\"> <<Предыдущий вопрос </button></br></br>
+    <button name = \"prev\" id=\"prev\" type=\"submit\" value=\"back\"  class = 'arrow-btn'> 
+        <i class = 'fa fa-chevron-left fa-2x move_left'></i>
+    </button>
+    <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn'>
+        <i class = 'fa fa-chevron-right fa-2x move_right'></i>
+    </button>
 </form>";
     }
 
@@ -127,7 +131,7 @@ class __TwigTemplate_2d48137db7d8a5c077fefbd6a17acded3e8b0a645112a70443a2f238591
 /*         {% for key, variant in variantes %}*/
 /*             <tr>*/
 /*                 <td>*/
-/*                     {{variant}}*/
+/*                     {{variant['answer_text']}}*/
 /*                 </td>*/
 /*                 {% for scaleKey, scaleStep in scale %}*/
 /*                     <td>*/
@@ -141,6 +145,10 @@ class __TwigTemplate_2d48137db7d8a5c077fefbd6a17acded3e8b0a645112a70443a2f238591
 /* */
 /*     <br><br>*/
 /* */
-/*     <button name = "next" id="next" type="submit" style="width: 180px" value="next"> Следующий вопрос>> </button></br></br>*/
-/*     <button name = "prev" id="prev" type="submit" style="width: 180px" value="back"> <<Предыдущий вопрос </button></br></br>*/
+/*     <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> */
+/*         <i class = 'fa fa-chevron-left fa-2x move_left'></i>*/
+/*     </button>*/
+/*     <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn'>*/
+/*         <i class = 'fa fa-chevron-right fa-2x move_right'></i>*/
+/*     </button>*/
 /* </form>*/

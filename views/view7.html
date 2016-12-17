@@ -1,4 +1,4 @@
-<script type = 'text/javascript' src = "public/javascripts/buttons.js"> </script>
+<script type = 'text/javascript' src = "public/javascripts/buttons2.js"> </script>
 
 <!-- тут прописать в зависимости от длины вариантов выбот форматирования - в одну колонку или в две, маленькие инпуты или большие -->
 
@@ -9,7 +9,7 @@
     <div class = 'variantes'>
         {% for key, variant in variantes %}
 
-            <div class = 'answer-item-sm' id = "answer-{{key}}">
+            <div class = 'answer-item-md' id = "answer-{{key}}">
                 <input name = "name[]" id = "{{key}}" type = 'radio' value = "{{key}}"
                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} class = 'hiddenInput'>
                 <div class = 'answer-num'> {{variant['answerIndex']}} </div>

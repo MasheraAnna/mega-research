@@ -1,7 +1,7 @@
 <?php
 
-/* view2.html */
-class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891cd1001 extends Twig_Template
+/* view7.html */
+class __TwigTemplate_148c47209f11b617f0099c341eb2880f1a9d0558275a19e5336faf88076c8eff extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -16,7 +16,7 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<script type = 'text/javascript' src = \"public/javascripts/buttons.js\"> </script>
+        echo "<script type = 'text/javascript' src = \"public/javascripts/buttons2.js\"> </script>
 
 <!-- тут прописать в зависимости от длины вариантов выбот форматирования - в одну колонку или в две, маленькие инпуты или большие -->
 
@@ -35,7 +35,7 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
         foreach ($context['_seq'] as $context["key"] => $context["variant"]) {
             // line 11
             echo "
-            <div class = 'answer-item-sm' id = \"answer-";
+            <div class = 'answer-item-md' id = \"answer-";
             // line 12
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "\">
@@ -84,7 +84,7 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
 
     public function getTemplateName()
     {
-        return "view2.html";
+        return "view7.html";
     }
 
     public function isTraitable()
@@ -97,7 +97,7 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
         return array (  71 => 21,  60 => 16,  56 => 15,  50 => 14,  44 => 13,  40 => 12,  37 => 11,  33 => 10,  27 => 7,  19 => 1,);
     }
 }
-/* <script type = 'text/javascript' src = "public/javascripts/buttons.js"> </script>*/
+/* <script type = 'text/javascript' src = "public/javascripts/buttons2.js"> </script>*/
 /* */
 /* <!-- тут прописать в зависимости от длины вариантов выбот форматирования - в одну колонку или в две, маленькие инпуты или большие -->*/
 /* */
@@ -108,7 +108,7 @@ class __TwigTemplate_09dbc2d03a066297e937a8e6767f028a9e1db8b9f8202e0c8225b92891c
 /*     <div class = 'variantes'>*/
 /*         {% for key, variant in variantes %}*/
 /* */
-/*             <div class = 'answer-item-sm' id = "answer-{{key}}">*/
+/*             <div class = 'answer-item-md' id = "answer-{{key}}">*/
 /*                 <input name = "name[]" id = "{{key}}" type = 'radio' value = "{{key}}"*/
 /*                    {% if qData[key] == "true" %} checked = 'checked' {% endif %} class = 'hiddenInput'>*/
 /*                 <div class = 'answer-num'> {{variant['answerIndex']}} </div>*/

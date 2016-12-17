@@ -3,15 +3,15 @@ function change_next (state, useclass){
     $("#next").attr("class", useclass);
 };
 
-function mark_item_onclick( answer_item_sm, item_class_to_set, current_tick_class, tick_class_to_set){
-    
-    $("." + answer_item_sm).each(function(){
-        
+function mark_item_onclick( item_class, item_class_to_set, current_tick_class, tick_class_to_set){
+
+    $("." + item_class).each(function(){
+
         $(this).on('click', function(){
-            
+
             // change state of the answer item div
             $("." + item_class_to_set).each(function(){
-                $(this).attr("class", answer_item_sm);    
+                $(this).attr("class", item_class);    
             });
             $(this).attr("class", item_class_to_set);
 
@@ -58,12 +58,13 @@ function put_mark_if_input_checked(input, inputs_class, inputs_class_to_set, tic
 }
 
 $(document).ready(function(){
+
 // отмечаем скрытые инпуты по нажанию на блок
-    mark_item_onclick("answer-item-sm", "answer-item-sm-grey", "tick-hidden", "tick-shown");
+    mark_item_onclick("answer-item-md", "answer-item-md-grey", "tick-hidden", "tick-shown");
 // проверяем, нажат ли хоть один инпут и разблокирем кнопку, если да
-    unblock_if_one_input_checked ("arrow-btn", "arrow-btn-disabled", "answer-item-sm");
+    unblock_if_one_input_checked ("arrow-btn", "arrow-btn-disabled", "answer-item-md");
 // блокируем кнопки, если ни один из инпутов не отмечен
     block_if_none_of_inputs_checked("input", "arrow-btn");
 // ставим галочки и окрашиваем те блоки, инпуты которых выбраны
-    put_mark_if_input_checked("input", "answer-item-sm", "answer-item-sm-grey", "tick-hidden", 'tick-shown');
+    put_mark_if_input_checked("input", "answer-item-md", "answer-item-md-grey", "tick-hidden", 'tick-shown');
 });

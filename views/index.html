@@ -40,14 +40,25 @@
         
             <div class = "center-qtext">
                 <div class = 'number-and-arrow'></div>
-                <div class= 'comment'> {{question.qComment}} </div>
+                <div class= 'comment'> {{question.qComment | upper }} </div>
             </div>
         </div>
-
-        <div class='qarea'>
-            {% include question.qView~'.html' %}
+        <div class = 'qarea'>
+            <div class='qarea-inner'>
+                {% include question.qView~'.html' %}
+            </div>
         </div>
         {% endif %}
+
+        <script type="text/javascript">
+
+            var content_lenght = ($(".content").css("height").substr(0, lenght = ($(".content").css("height").length - 2)));
+            var qtext_lenght = ($(".qtext").css("height").substr(0, lenght = ($(".qtext").css("height").length - 2)));
+            var height = content_lenght - qtext_lenght;
+            $(".qarea").css("height", height);
+
+
+        </script>
 
 {% endblock %}
 

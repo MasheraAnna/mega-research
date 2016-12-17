@@ -100,34 +100,45 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
                 <div class = 'number-and-arrow'></div>
                 <div class= 'comment'> ";
             // line 43
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qComment", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, $this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qComment", array())), "html", null, true);
             echo " </div>
             </div>
         </div>
-
-        <div class='qarea'>
-            ";
+        <div class = 'qarea'>
+            <div class='qarea-inner'>
+                ";
             // line 48
             $this->loadTemplate(($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) . ".html"), "index.html", 48)->display($context);
             // line 49
-            echo "        </div>
+            echo "            </div>
+        </div>
         ";
         }
-        // line 51
+        // line 52
         echo "
+        <script type=\"text/javascript\">
+
+            var content_lenght = (\$(\".content\").css(\"height\").substr(0, lenght = (\$(\".content\").css(\"height\").length - 2)));
+            var qtext_lenght = (\$(\".qtext\").css(\"height\").substr(0, lenght = (\$(\".qtext\").css(\"height\").length - 2)));
+            var height = content_lenght - qtext_lenght;
+            \$(\".qarea\").css(\"height\", height);
+
+
+        </script>
+
 ";
     }
 
-    // line 56
+    // line 67
     public function block_footer($context, array $blocks = array())
     {
-        // line 57
+        // line 68
         echo "    ";
         if ((($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) == "start") || ($this->getAttribute((isset($context["question"]) ? $context["question"] : null), "qView", array()) == "last"))) {
-            // line 58
+            // line 69
             echo "    ";
         } else {
-            // line 59
+            // line 70
             echo "        <div class = 'menueArea'>
             
             <div class = 'menueAreaItem center-item'> 
@@ -152,7 +163,7 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
 
     public function getDebugInfo()
     {
-        return array (  131 => 59,  128 => 58,  125 => 57,  122 => 56,  117 => 51,  113 => 49,  111 => 48,  103 => 43,  93 => 36,  87 => 33,  81 => 29,  78 => 28,  75 => 27,  73 => 26,  69 => 24,  66 => 23,  58 => 15,  54 => 13,  46 => 11,  44 => 10,  39 => 7,  36 => 6,  33 => 5,  30 => 4,  11 => 1,);
+        return array (  142 => 70,  139 => 69,  136 => 68,  133 => 67,  118 => 52,  113 => 49,  111 => 48,  103 => 43,  93 => 36,  87 => 33,  81 => 29,  78 => 28,  75 => 27,  73 => 26,  69 => 24,  66 => 23,  58 => 15,  54 => 13,  46 => 11,  44 => 10,  39 => 7,  36 => 6,  33 => 5,  30 => 4,  11 => 1,);
     }
 }
 /* {% extends 'base.html'%}*/
@@ -197,14 +208,25 @@ class __TwigTemplate_b59ca96afe4454391275d724c3888ae51dccca6ef2e50561a23ede86afe
 /*         */
 /*             <div class = "center-qtext">*/
 /*                 <div class = 'number-and-arrow'></div>*/
-/*                 <div class= 'comment'> {{question.qComment}} </div>*/
+/*                 <div class= 'comment'> {{question.qComment | upper }} </div>*/
 /*             </div>*/
 /*         </div>*/
-/* */
-/*         <div class='qarea'>*/
-/*             {% include question.qView~'.html' %}*/
+/*         <div class = 'qarea'>*/
+/*             <div class='qarea-inner'>*/
+/*                 {% include question.qView~'.html' %}*/
+/*             </div>*/
 /*         </div>*/
 /*         {% endif %}*/
+/* */
+/*         <script type="text/javascript">*/
+/* */
+/*             var content_lenght = ($(".content").css("height").substr(0, lenght = ($(".content").css("height").length - 2)));*/
+/*             var qtext_lenght = ($(".qtext").css("height").substr(0, lenght = ($(".qtext").css("height").length - 2)));*/
+/*             var height = content_lenght - qtext_lenght;*/
+/*             $(".qarea").css("height", height);*/
+/* */
+/* */
+/*         </script>*/
 /* */
 /* {% endblock %}*/
 /* */

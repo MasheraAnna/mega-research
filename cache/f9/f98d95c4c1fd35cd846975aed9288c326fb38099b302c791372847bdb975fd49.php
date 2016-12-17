@@ -54,10 +54,10 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
         echo "    </div>
     <div class = 'buttons'>
         <button name = \"prev\" id=\"prev\" type=\"submit\" value=\"back\"  class = 'arrow-btn'> 
-            <i class = 'fa fa-chevron-up fa-2x'></i>
+            <i class = 'fa fa-chevron-left fa-2x move_left'></i>
         </button>
-        <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn' >
-            <i class = 'fa fa-chevron-down fa-2x'></i>
+        <button name = \"next\" id=\"next\" type=\"submit\" value=\"next\" class = 'arrow-btn'>
+            <i class = 'fa fa-chevron-right fa-2x move_right'></i>
         </button>
     </div>
 </form>
@@ -93,10 +93,10 @@ class __TwigTemplate_a8eb247a799f6291c3d230b1033dcd77f7f5c93e677d2e8c85f4008f8fe
 /*     </div>*/
 /*     <div class = 'buttons'>*/
 /*         <button name = "prev" id="prev" type="submit" value="back"  class = 'arrow-btn'> */
-/*             <i class = 'fa fa-chevron-up fa-2x'></i>*/
+/*             <i class = 'fa fa-chevron-left fa-2x move_left'></i>*/
 /*         </button>*/
-/*         <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn' >*/
-/*             <i class = 'fa fa-chevron-down fa-2x'></i>*/
+/*         <button name = "next" id="next" type="submit" value="next" class = 'arrow-btn'>*/
+/*             <i class = 'fa fa-chevron-right fa-2x move_right'></i>*/
 /*         </button>*/
 /*     </div>*/
 /* </form>*/
