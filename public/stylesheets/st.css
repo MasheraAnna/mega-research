@@ -1,0 +1,93 @@
+/* макет страницы в целом *******************************************/
+
+html{
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    height: 100%;
+}
+h1{
+    margin: 0px;
+}
+
+#root{
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #cdc;
+}
+
+.header{
+    height: 70px;
+    border: 1px solid #ccc;
+}
+.content{
+    width: 100%;
+    background-color: #FFF;
+}
+.footer{
+    height: 70px;
+    border: 1px solid #ccc;
+}
+
+
+/* текст-приветствие *********************************************/
+
+.helloArea{
+    border: 1px solid #ccc;
+}
+
+.helloText{
+    font-size: 24px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    width: 700px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/*******************************************************************/
+
+/* стрелки и отправка **********************************************/
+
+.helloButtons{
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    width: 700px;
+    text-align: center;
+}
+
+.arrow-btn{
+    width: 45px;
+    height: 43px;
+    background-color: #009D91;
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px #1d766f solid;
+    -webkit-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 0px 0px rgba(0,0,0,0.75);    
+    font-size: 12px;
+}
+
+.move_right{
+    padding-left: 5px;
+}
+
+.move_left{
+    padding-right: 5px;    
+}
+
+.pressEnterText{
+    display: inline-block;
+    color: #009D91;
+    vertical-align: top;
+    margin: 10px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+}
+
+/***************************************************************/
