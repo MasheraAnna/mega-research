@@ -57,6 +57,7 @@ class Question {
                 $this->question["id"]= $nextQId;
             }
         } else if ($testQId && !$this->respId){
+            
             $qId = 1;
             $this->question["id"] = 1;
         } else if ($this->respId) {

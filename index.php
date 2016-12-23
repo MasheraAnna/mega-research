@@ -2,39 +2,15 @@
 
 include "config/config.php";
 include "class/Question.php";
-// require_once 'vendor/autoload.php';
 
 // создали объект вопрос, он подключился к базе и получил текст вопроса и варианты ответа по id
 // и вывел все это на экран
+
 $question = new Question(HOST, USER, PASSWORD, DB);
+
 
 echo (json_encode ($question));
 
-
-// $loader = new Twig_Loader_Filesystem('views');
-// $twig = new Twig_Environment($loader, array(
-//     'cache' => 'cache',
-//     'debug' => true
-// ));
-
-// // как-то нужно добавить первый экран.
-// // можно сделать так, чтобы по умолчанию qView = start, и отдавать шаблон "start", на котором писать приветствие
-
-// if($question->qView != 'last') {
-//     $tpl_name = 'index.html';
-// } else {
-//     $tpl_name = 'bb.html';
-// }
-
-// $template = $twig->loadTemplate($tpl_name);
-
-// echo $template->render(array(
-//     "question" => $question->question,
-//     "variantes" => $question->variantes,
-//     "scale" => $question->scale,
-//     "qData" => $question->qData,
-//     "name" => $question->name
-// ));
 
 
 
