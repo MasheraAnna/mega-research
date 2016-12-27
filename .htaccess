@@ -4,4 +4,4 @@
 
 
 RewriteEngine on
-RewriteRule question([0-9]+)$ index.php?qId=$1
+RewriteRule question([0-9]+)$ index.php?qIndex=$1

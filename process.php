@@ -4,25 +4,24 @@ include "class/Question.php";
 
 $question = new Question(HOST, USER, PASSWORD, DB);
 
-$CurrentQId = filter_input (INPUT_GET, 'qId', FILTER_SANITIZE_NUMBER_INT);
+$CurrentQIndex = filter_input (INPUT_POST, 'qIndex', FILTER_SANITIZE_NUMBER_INT);
 $next = filter_input(INPUT_POST, 'next', FILTER_SANITIZE_EMAIL);
 $prev = filter_input (INPUT_POST, 'prev', FILTER_SANITIZE_EMAIL);
+
 
 if ($next){
 
     $question->sendToDb();
-    $nextQuestion = $CurrentQId + 1;
-    $nextQId = $question->ifAskThisQ($nextQuestion);
+    $nextQuestion = $CurrentQIndex + 1;
+    $nextQIndex = $question->ifAskThisQ($nextQuestion);
 
-} else if ($prev && $question->id > 1){
-
-    $nextQId = $question->getPrevQId ($CurrentQId);
+} else if ($prev && $question->qIndex > 1){
+    $nextQIndex = $question->getPrevQId ($CurrentQIndex);
 } else {
-
-    $nextQId = 1;
+    $nextQIndex = 1;
 }
 
-header("Location:question$nextQId");
+header("Location:question$nextQIndex");
 die();
 ?>
 

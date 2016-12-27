@@ -5,9 +5,10 @@
 	    </div>
 	    <div class = 'middleScreen'>
 	    	<div class = 'startButton-container'>
-
-		        <form action='process.php?qId={{question.id}}' method='post'>
-		        	<input type = 'hidden' name ="0" id ="0" value = 'start'>
+		        <form action='process.php?qIndex={{question.qIndex}}' method='post'>
+		        	{% for key, variant in variantes %}
+		        		<input type = 'hidden' name ="{{key}}" id ="{{key}}" value ='{{variant["answer_text"]}}'>
+		        	{% endfor %}
 		        	<button name = "next" id = "next" type= "submit" value = "next" class = "startButton"> Начать </button>
 		        </form>
 		    </div>
