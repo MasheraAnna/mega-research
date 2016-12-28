@@ -24,6 +24,7 @@ h1{
 
 .header{
     border: 1px solid #ccc;
+    height: 70px;
 }
 .content{
     width: 100%;
@@ -31,6 +32,7 @@ h1{
 }
 .footer{
     border: 1px solid #ccc;
+    height: 70px;
 }
 
 
