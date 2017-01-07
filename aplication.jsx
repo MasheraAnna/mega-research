@@ -12,11 +12,10 @@
 
 
 var data = $.getJSON('index.php', function (data) {
-	
 
 	var Variantes = function (props) {
 		return (
-			<div> 
+			<div>
 			{Object.keys(props.data).map(function(key){ 
 				return  <div key = {key} > 
 							<p> {props.data[key].answerIndex} </p>
@@ -64,7 +63,7 @@ var data = $.getJSON('index.php', function (data) {
 					    	<div className = 'startButton-container'>
 								<form action='' method='post'>
 						        	<button name = "next" id = "next" type= "submit" value = "next" className = "startButton"> Начать </button>
-						        </form>					    
+						        </form>		    
 						    </div>
 					        <div className = 'pressEnterDiv'>
 					            <span className = 'pressEnterText'> нажмите ENTER </span>
@@ -79,7 +78,7 @@ var data = $.getJSON('index.php', function (data) {
 						<p> {this.state.data.question.qNum} </p>
 						<p> {this.state.data.question.qIndex} </p>
 						<p> {this.state.data.question.qText} </p>
-						<p> {this.state.аdata.question.qComment} </p>
+						<p> {this.state.data.question.qComment} </p>
 						<Variantes data = {this.state.data.variantes}/> 					
 					</div>;
 			}
