@@ -79,7 +79,7 @@ var data = $.getJSON('index.php', function (data) {
 						<p> {this.state.data.question.qNum} </p>
 						<p> {this.state.data.question.qIndex} </p>
 						<p> {this.state.data.question.qText} </p>
-						<p> {this.state.data.question.qComment} </p>
+						<p> {this.state.аdata.question.qComment} </p>
 						<Variantes data = {this.state.data.variantes}/> 					
 					</div>;
 			}
